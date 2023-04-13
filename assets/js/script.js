@@ -66,7 +66,7 @@ function parseData(dateData) {
   const [month, day] = searchDate.split('/')
   const monthText = monthNames[month-1]
   console.log(monthText)
-  const eventDate = monText + " " + day + ", " year
+  const eventDate = monthText + " " + day + ", " year
   console.log(eventDate)
   const link = dateData.links[1].link
   const text = dateData.text
