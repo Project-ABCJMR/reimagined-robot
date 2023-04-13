@@ -1,28 +1,7 @@
-async function logJSONData() {
-    try {
-      const response = await fetch("http://history.muffinlabs.com/date/2/14");
-      const jsonData = await response.json();
-      console.log(jsonData.url); 
-      console.log(jsonData)
-      console.log(jsonData.data.Events[0])
-    //   document.getElementById("data").textContent=jsonData.main.temp
-    } catch (error) {
-      console.error("Error fetching weather data:", error);
-    }
-  }
-  
-  logJSONData();
-  
-
-
-
-
-
-
-
-//search javascript
+/* //search javascript */
 const form = document.querySelector('form');
 const searchText = document.getElementById('searchText');
+const renderElem = document.getElementById('renderHTML')
 form.addEventListener('submit', event => {
   event.preventDefault();
   console.log("clicked")
@@ -32,23 +11,9 @@ getEvent(searchDate)
 
 })
 
-function getEvent(searchDate) {
-  const url = 'https://history.muffinlabs.com/date/' + searchDate
-
-  fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    const dateData = data.data.Events[0];
-    console.log(dateData)
-    const parsedData = parseData(dateData)
-    console.log(parsedData)
-    const displayHTML = render(parsedData)
-    renderElem.innerHTML = displayHTML
-  })
-}
-
-function parseData(dateData) {
-   const monthNames = [
+function parseData(dateData, searchDate) {
+  
+  const monthNames = [
   'January',
   'February',
   'March',
@@ -61,9 +26,10 @@ function parseData(dateData) {
   'October',
   'November',
   'December'
-    ];  
+];
+
   const year = dateData.year;
-  const [month, day] = searchDate.split('/')
+  const  [month, day] = searchDate.split("/")
   const monthText = monthNames[month-1]
   console.log(monthText)
   const eventDate = monthText + " " + day + ", " + year
@@ -71,23 +37,42 @@ function parseData(dateData) {
   const link = dateData.links[1].link
   const text = dateData.text
   
-  return { eventDate, link, text}
+  return { eventDate, link, text }
 }
-  
-  
-    function render(parsedData) {
+
+
+function getEvent(searchDate) {
+  const url = 'https://history.muffinlabs.com/date/' + searchDate
+
+  fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    const dateData = data.data.Events[0];
+    console.log(dateData)
+    const parsedData = parseData(dateData, searchDate)
+    console.log(parsedData)
+    const displayHTML = render(parsedData)
+    renderElem.innerHTML = displayHTML
+    })
+}
+
+
+function render(parsedData) {
   const eventHTML = `
-    <div class="eventInfo row" style="flex">
-        <div class="col-md-4 eventText">'
-            <h2>On this day back in ${parsedData.eventDate}</h2>
-            <p>${parsedData.text}<br></br>To find out more on this event head over here: <a href="${parsedData.link}">${parsedData.link}</a></p>
-        </div>
+  <div class="eventInfo row" style="flex">
+    <div class="col-md-4 eventText">'
+      <h2>On this day back in ${parsedData.eventDate}</h2>
+      <p>${parsedData.text}<br></br>Link: <a href="${parsedData.link}">${parsedData.link}</a></p>
+      </div>
     </div>
   `;
   
   return `
     ${eventHTML}
   `;
-  console.log(eventHTML)
-  }
- 
+}
+console.log(displayHTML)
+
+
+
+
