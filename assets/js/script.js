@@ -42,18 +42,52 @@ function getEvent(searchDate) {
     console.log(dateData)
     const parsedData = parseData(dateData)
     console.log(parsedData)
+    const displayHTML = render(parsedData)
+    renderElem.innerHTML = displayHTML
   })
 }
 
 function parseData(dateData) {
+   const monthNames = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
+    ];  
   const year = dateData.year;
-  console.log(year)
+  const [month, day] = searchDate.split('/')
+  const monthText = monthNames[month-1]
+  console.log(monthText)
+  const eventDate = monthText + " " + day + ", " + year
+  console.log(eventDate)
   const link = dateData.links[1].link
   const text = dateData.text
   
-  
-
-  return { year, link, text }
+  return { eventDate, link, text}
 }
-
-
+  
+  
+    function render(parsedData) {
+  const eventHTML = `
+    <div class="eventInfo row" style="flex">
+        <div class="col-md-4 eventText">'
+            <h2>On this day back in ${parsedData.eventDate}</h2>
+            <p>${parsedData.text}<br></br>To find out more on this event head over here: <a href="${parsedData.link}">${parsedData.link}</a></p>
+        </div>
+    </div>
+  `;
+  
+  return `
+    ${eventHTML}
+  `;
+  console.log(eventHTML)
+  }
+ 
