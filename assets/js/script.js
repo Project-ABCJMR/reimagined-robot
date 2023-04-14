@@ -17,14 +17,6 @@ form.addEventListener('submit', event => {
 function getEvent(searchDate) {
     
 
-
-
-
-
-
-
-
-
   //get 12 random numbers between 1 and 100
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -64,7 +56,7 @@ console.log(searchDates);
 
 getYearData(searchDates)
 eventHTML = renderAllEvents(allEventsData)
-scriptHTML.innerHTML = allEventsHTML 
+  scriptHTML.innerHTML = allEventsHTML 
 
 }
 async function getYearData(searchDates) {
@@ -93,13 +85,6 @@ async function getYearData(searchDates) {
     console.log(allEventsData)
 }
 
-
-
-
-
-
-
-
 function renderAllEvents(allEventsData) {
   const eventHTML = allEventsData.map(item => `
     <div class="eventInfo row" style="flex">
@@ -114,7 +99,6 @@ function renderAllEvents(allEventsData) {
   return eventHTML
 
 }
-
 
 
 
