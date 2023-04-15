@@ -55,8 +55,8 @@ for (let i = 0; i < randomNumbers.length; i++) {
 console.log(searchDates);
 
 getYearData(searchDates)
-eventHTML = renderAllEvents(allEventsData)
-  scriptHTML.innerHTML = allEventsHTML 
+
+  
 
 }
 async function getYearData(searchDates) {
@@ -83,6 +83,8 @@ async function getYearData(searchDates) {
       })
     )
     console.log(allEventsData)
+    eventHTML = renderAllEvents(allEventsData)
+    getItToDom(eventHTML)
 }
 
 function renderAllEvents(allEventsData) {
@@ -93,11 +95,15 @@ function renderAllEvents(allEventsData) {
         <p>${item.event}</p>
     </div>
     <div>
-  </div>;
+  </div>
   `).join('');
 
   return eventHTML
+  
+}
 
+function getItToDom(eventHTML) {
+scriptHTML.innerHTML = eventHTML 
 }
 
 
