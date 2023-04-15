@@ -1,93 +1,139 @@
-async function logJSONData() {
-    try {
-      const response = await fetch("http://history.muffinlabs.com/date/2/14");
-      const jsonData = await response.json();
-      console.log(jsonData.url); 
-      console.log(jsonData)
-      console.log(jsonData.data.Events[0])
-    //   document.getElementById("data").textContent=jsonData.main.temp
-    } catch (error) {
-      console.error("Error fetching weather data:", error);
-    }
-  }
-  
-  logJSONData();
-  
-
-
-
-
-
-
-
-//search javascript
 const form = document.querySelector('form');
 const searchText = document.getElementById('searchText');
+const scriptHTML = document.getElementById('renderHTML')
+
+
+
 form.addEventListener('submit', event => {
   event.preventDefault();
-  console.log("clicked")
-const searchDate = searchText.value;
+  const searchDate = searchText.value;
+  getEvent(searchDate);
 
-getEvent(searchDate)
+  
+});
 
-})
+
 
 function getEvent(searchDate) {
-  const url = 'https://history.muffinlabs.com/date/' + searchDate
+    
 
-  fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    const dateData = data.data.Events[0];
-    console.log(dateData)
-    const parsedData = parseData(dateData)
-    console.log(parsedData)
-    const displayHTML = render(parsedData)
-    renderElem.innerHTML = displayHTML
-  })
+  //get 12 random numbers between 1 and 100
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function parseData(dateData) {
-   const monthNames = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December'
-    ];  
-  const year = dateData.year;
-  const [month, day] = searchDate.split('/')
-  const monthText = monthNames[month-1]
-  console.log(monthText)
-  const eventDate = monthText + " " + day + ", " + year
-  console.log(eventDate)
-  const link = dateData.links[1].link
-  const text = dateData.text
-  
-  return { eventDate, link, text}
+const randomNumbers = []
+
+for (let i = 0; i < 12; i++) {
+const randomNumber = getRandomInt(1, 100); 
+console.log(`randomNumber ${i}: ${randomNumber}`);
+randomNumbers.push(randomNumber)
+
 }
-  
-  
-    function render(parsedData) {
-  const eventHTML = `
-    <div class="eventInfo row" style="flex">
-        <div class="col-md-4 eventText">'
-            <h2>On this day back in ${parsedData.eventDate}</h2>
-            <p>${parsedData.text}<br></br>To find out more on this event head over here: <a href="${parsedData.link}">${parsedData.link}</a></p>
-        </div>
-    </div>
-  `;
-  
-  return `
-    ${eventHTML}
-  `;
-  console.log(eventHTML)
+console.log(randomNumbers)
+
+//randomNumbers array used to get searchDate
+const searchDateN = parseInt(searchDate)
+console.log(searchDateN)
+const searchDateAncient = searchDateN < 1923 || searchDateN < 0
+console.log(searchDateAncient)
+const searchDateRecent = searchDateN >= 1923
+const searchDates = []
+
+for (let i = 0; i < randomNumbers.length; i++) {
+  if(searchDateAncient) {
+      const finalDate = searchDateN + parseInt(randomNumbers[i])
+      console.log(searchDateAncient)
+      searchDates.push(finalDate)
+  } else if (searchDateRecent) {
+    const finalAltDate =  1923 + parseInt(randomNumbers[i])
+    searchDates.push(finalAltDate)
   }
- 
+}
+console.log(searchDates);
+
+getYearData(searchDates)
+
+  
+
+}
+async function getYearData(searchDates) {
+    const myHeaders = new Headers();
+    myHeaders.append("X-Api-Key", "cVYAGyxVsjKIeUf3l0dufoGDRN5uh06eJhAPjFdL");
+    const requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+    };
+    const allEventsData = []
+    
+    const eventData = await Promise.all (
+      searchDates.map(async (year) => {
+      const response = await fetch("https://api.api-ninjas.com/v1/historicalevents?year=" + year, requestOptions)
+      const historicalEventsData = await response.json();
+          if (historicalEventsData.length > 0) {
+            const firstEvent = historicalEventsData[0];
+            allEventsData.push(firstEvent)
+            
+          } else {
+              console.log("nothing")
+          }
+      })
+    )
+    console.log(allEventsData)
+    eventHTML = renderAllEvents(allEventsData)
+    getItToDom(eventHTML)
+    const historicalEventsElem = document.getElementById("historicalEvents")
+    historicalEventsElem.style.display = "block"
+    seeHTML(scriptHTML)
+}
+
+function renderAllEvents(allEventsData) {
+  const eventHTML = allEventsData.map(item => `
+    <div class="eventText" style="display: flex; flex-basis: 1 1 28%; max-width: 400px;">
+      <div>
+        <h2>On ${item.month}/${item.day}/${item.year}:</h2>
+        <p>${item.event}</p>
+      </div>
+    </div>
+  `).join('');
+
+  return eventHTML
+  
+}
+
+function getItToDom(eventHTML) {
+scriptHTML.innerHTML = eventHTML 
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const dropdown = document.getElementById("dropdown");
+
+  if (dropdown) {
+    const dropdownTrigger = dropdown.querySelector(".dropdown-trigger button");
+
+    if (dropdownTrigger) {
+      dropdownTrigger.addEventListener("click", () => {
+        dropdown.classList.toggle("is-active");
+      });
+    }
+  }
+});
+
+function seeHTML(scriptHTML) {
+  
+  scriptHTML.scrollIntoView({ behavior: 'smooth' })
+}
+
+
+
+
+
+
+
+
+
+

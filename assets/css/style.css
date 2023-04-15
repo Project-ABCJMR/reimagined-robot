@@ -1,11 +1,13 @@
 /*hello yall this is the style sheet <3 */
 
+
 *{
     background-color: #CFC8B4;
     color: #222B0F;
     /*this color is temporary*/
     margin: 0;
     padding: 0;
+
     
     
 
@@ -32,6 +34,7 @@ h1{
 .navbar {
     width: 100%;
   }
+
 
 .favicon{
     height: fit-content; 
@@ -170,3 +173,4 @@ h1{
 .nav-container input[type="checkbox"]:checked ~ .logo{
     display: none;
   }
+
