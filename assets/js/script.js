@@ -85,17 +85,19 @@ async function getYearData(searchDates) {
     console.log(allEventsData)
     eventHTML = renderAllEvents(allEventsData)
     getItToDom(eventHTML)
+    const historicalEventsElem = document.getElementById("historicalEvents")
+    historicalEventsElem.style.display = "block"
+    seeHTML(scriptHTML)
 }
 
 function renderAllEvents(allEventsData) {
   const eventHTML = allEventsData.map(item => `
-    <div class="eventInfo row" style="flex">
-      <div class="col-md-3 eventText">
-        <h2>On ${item.month}/${item.day}/${item.year}</h2>
+    <div class="eventText" style="display: flex; flex-basis: 1 1 28%; max-width: 400px;">
+      <div>
+        <h2>On ${item.month}/${item.day}/${item.year}:</h2>
         <p>${item.event}</p>
+      </div>
     </div>
-    <div>
-  </div>
   `).join('');
 
   return eventHTML
@@ -107,7 +109,24 @@ scriptHTML.innerHTML = eventHTML
 }
 
 
+document.addEventListener("DOMContentLoaded", () => {
+  const dropdown = document.getElementById("dropdown");
 
+  if (dropdown) {
+    const dropdownTrigger = dropdown.querySelector(".dropdown-trigger button");
+
+    if (dropdownTrigger) {
+      dropdownTrigger.addEventListener("click", () => {
+        dropdown.classList.toggle("is-active");
+      });
+    }
+  }
+});
+
+function seeHTML(scriptHTML) {
+  
+  scriptHTML.scrollIntoView({ behavior: 'smooth' })
+}
 
 
 

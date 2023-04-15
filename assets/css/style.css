@@ -5,3 +5,22 @@
 
 
 } */
+
+* {
+    padding: 20px 20px
+}
+
+.eventText {
+    margin-top: 20px;
+    padding: 5px 5px;
+    background-color:antiquewhite;
+    border-radius: 7px;   
+}
+
+#historicalEvents {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 60px;
+    margin-bottom: 20px;
+}
