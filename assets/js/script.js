@@ -92,11 +92,9 @@ async function getYearData(searchDates) {
 
 function renderAllEvents(allEventsData) {
   const eventHTML = allEventsData.map(item => `
-    <div class="eventText" style="display: flex; flex-basis: 1 1 28%; max-width: 400px;">
-      <div>
-        <h2>On ${item.month}/${item.day}/${item.year}:</h2>
+    <div class="eventText" style="display: flex; flex: 1 1 29%; max-width: 400px;">
+        <h2>${item.month}/${item.day}/${item.year}:</h2>
         <p>${item.event}</p>
-      </div>
     </div>
   `).join('');
 
