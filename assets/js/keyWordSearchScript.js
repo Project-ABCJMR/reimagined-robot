@@ -39,14 +39,14 @@ function getKeyWordEvent(searchDate) {
     };
     console.log("fetching url:", keyWordURL + searchDate)
     fetch(keyWordURL + searchDate, requestOptions)
-  .then(response => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw new Error("Network response was not ok");
-    }
-  })
-  .then(result => {
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error("Network response was not ok");
+        }
+    })
+    .then(result => {
     const allEventsData = result;
     const eventHTML = renderAllEvents(allEventsData);
     getItToDom(eventHTML);
@@ -54,13 +54,12 @@ function getKeyWordEvent(searchDate) {
     
     historicalEventsElem.style.display = "block"
     seeHTML(scriptHTML)
-  })
-  .catch(error => {
+    })
+    .catch(error => {
     console.error("Error:", error.message);
-  });
-  
-          
-      }
+    });
+
+}
     //   )
     // )
     // console.log(allEventsData)

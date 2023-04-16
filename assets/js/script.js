@@ -28,11 +28,13 @@ dropDown.addEventListener("click", (event) => {
 yearURLElem.addEventListener("click", event => {
   selectionTextElem.textContent = yearURLElem.textContent
   console.log(event)
+  historicalEventsElem.style.display = "none"
 })
 
 keyWordURLElem.addEventListener("click", event => {
   selectionTextElem.textContent = keyWordURLElem.textContent
   console.log(selectionTextElem.textContent)
+  historicalEventsElem.style.display = "none"
 })
 
 function saveSearch(searchDate, selectionTextElem) {
@@ -77,9 +79,6 @@ form.addEventListener('submit', event => {
   }
 
   });
-
-
-
 
 //working code start
 
