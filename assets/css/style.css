@@ -196,7 +196,8 @@ h1{
 
 .eventText {
   background-color:rgb(235, 248, 248) !important;
-  margin: 5px 8px;
+  margin: 5px 5px;
+  padding: 4px 6px;
 }
 
 #mainContent{
