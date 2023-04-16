@@ -1,18 +1,87 @@
 const form = document.querySelector('form');
 const searchText = document.getElementById('searchText');
 const scriptHTML = document.getElementById('renderHTML')
+const dropDown = document.getElementById("dropDown")
+const yearURLElem = document.getElementById("yearURL")
+const keyWordURLElem = document.getElementById("keyWordURL")
+const selectionTextElem = document.getElementById("selectionText")
+const yearURL = "https://api.api-ninjas.com/v1/historicalevents?year="
+const keyWordURL = "https://api.api-ninjas.com/v1/historicalevents?text="
+const invalidYear = document.getElementById("invalidYear")
+const savedSearches = JSON.parse(localStorage.getItem('savedSearches') || "[]")
+const historicalEventsElem = document.getElementById("historicalEvents")
+
+// change selectionTextElem to the choice
+// function for getting text data
+
+// add event listener for search option choice
+dropDown.addEventListener("click", (event) => {
+  if (event.target === yearURLElem) {
+    selectionTextElem.textContent = yearURLElem.textContent
+    console.log(selectionTextElem.textContent)
+  } else if (event.target === keyWordURLElem) {
+    selectionTextElem.textContent = keyWordURLElem.textContent.trim()
+    console.log(selectionTextElem.textContent)
+  }
+})
+
+yearURLElem.addEventListener("click", event => {
+  selectionTextElem.textContent = yearURLElem.textContent
+  console.log(event)
+})
+
+keyWordURLElem.addEventListener("click", event => {
+  selectionTextElem.textContent = keyWordURLElem.textContent
+  console.log(selectionTextElem.textContent)
+})
+
+function saveSearch(searchDate, selectionTextElem) {
+  const selection = selectionTextElem.textContent
+  const savedSearches = JSON.parse(localStorage.getItem('savedSearches') || "[]")
+  savedSearches.push({type: selection.trim(), search: searchDate})
+  localStorage.setItem('savedSearches', JSON.stringify(savedSearches))
+}
 
 
-
+//start of working javascript
 form.addEventListener('submit', event => {
   event.preventDefault();
   const searchDate = searchText.value;
-  getEvent(searchDate);
-
+  console.log(typeof searchDate)
+  // getEvent(searchDate)
+  console.log(!isNaN(searchDate))
+  console.log(selectionTextElem.textContent.trim())
   
-});
+  // if, else-if, else
+  if (selectionTextElem.textContent.trim() === "Year" && !isNaN(searchDate)) {
+
+    console.log("good search")
+    getEvent(searchDate);
+    saveSearch(searchDate, selectionTextElem)
+    console.log(savedSearches)
+
+  } else if (selectionTextElem.textContent.trim() === "Key Word" && searchDate.trim().length > 0 && isNaN(searchDate)) {
+    getKeyWordEvent(searchDate)
+    
+    // saveSearch()
+    
+  } else {
+    console.log(selectionTextElem.textContent.trim(), searchDate)
+    console.log('somethings wrong')
+    invalidYear.style.display = "block"
+    const closeModal = document.getElementById("closemodal")
+    invalidYear.addEventListener("click", event => {
+      invalidYear.style.display = "none"
+    })
+
+  }
+
+  });
 
 
+
+
+//working code start
 
 function getEvent(searchDate) {
     
@@ -55,10 +124,8 @@ for (let i = 0; i < randomNumbers.length; i++) {
 console.log(searchDates);
 
 getYearData(searchDates)
-
-  
-
 }
+
 async function getYearData(searchDates) {
     const myHeaders = new Headers();
     myHeaders.append("X-Api-Key", "cVYAGyxVsjKIeUf3l0dufoGDRN5uh06eJhAPjFdL");
@@ -71,7 +138,7 @@ async function getYearData(searchDates) {
     
     const eventData = await Promise.all (
       searchDates.map(async (year) => {
-      const response = await fetch("https://api.api-ninjas.com/v1/historicalevents?year=" + year, requestOptions)
+      const response = await fetch(yearURL + year, requestOptions)
       const historicalEventsData = await response.json();
           if (historicalEventsData.length > 0) {
             const firstEvent = historicalEventsData[0];
@@ -85,7 +152,7 @@ async function getYearData(searchDates) {
     console.log(allEventsData)
     eventHTML = renderAllEvents(allEventsData)
     getItToDom(eventHTML)
-    const historicalEventsElem = document.getElementById("historicalEvents")
+    
     historicalEventsElem.style.display = "block"
     seeHTML(scriptHTML)
 }
@@ -102,29 +169,16 @@ function renderAllEvents(allEventsData) {
   
 }
 
+//display results from year search to HTML
 function getItToDom(eventHTML) {
 scriptHTML.innerHTML = eventHTML 
 }
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  const dropdown = document.getElementById("dropdown");
-
-  if (dropdown) {
-    const dropdownTrigger = dropdown.querySelector(".dropdown-trigger button");
-
-    if (dropdownTrigger) {
-      dropdownTrigger.addEventListener("click", () => {
-        dropdown.classList.toggle("is-active");
-      });
-    }
-  }
-});
-
 function seeHTML(scriptHTML) {
-  
   scriptHTML.scrollIntoView({ behavior: 'smooth' })
 }
+//end of working javascript
 
 
 
