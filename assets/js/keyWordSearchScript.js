@@ -111,11 +111,13 @@ async function getKeyWordEvent(searchDate) {
 
     
     getItToDom(eventHTML);
+
+    
     
     console.log(result);
     
     historicalEventsElem.style.display = "block"
-    seeHTML(scriptHTML)
+
     
     
     } catch (error) {
