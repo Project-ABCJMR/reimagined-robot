@@ -59,6 +59,19 @@ function getKeyWordEvent(searchDate) {
     console.error("Error:", error.message);
     });
 
+
+    const totalPages = 6
+    for(let currentPage = 1; currentPage <= totalPages; currentPage++ ){
+    fetch("https://api.harvardartmuseums.org/object?&apikey=28d8f398-d2ea-4c6c-bfe0-53c46eed6acb&hasimage=1&keyword=" + searchDate +"&q=NOT+image.description:null") 
+    .then(response => response.json()) 
+    .then(data => {
+        data.records.forEach(record => {
+            if (record.baseimageurl) {
+                console.log(record.baseimageurl)
+            }
+        })
+    })
+}
 }
     //   )
     // )
