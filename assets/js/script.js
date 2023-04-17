@@ -10,7 +10,10 @@ const keyWordURL = "https://api.api-ninjas.com/v1/historicalevents?text="
 const invalidYear = document.getElementById("invalidYear")
 const savedSearches = JSON.parse(localStorage.getItem('savedSearches') || "[]")
 const historicalEventsElem = document.getElementById("historicalEvents")
-const harvardimgs = document.getElementById("harvardimgs")
+const harvardImgs = document.getElementById("harvardimgs")
+const imgElem = document.getElementById("imgElem")
+const previousBtn = document.getElementById("previous")
+const nextBtn = document.getElementById("next")
 
 // change selectionTextElem to the choice
 // function for getting text data
@@ -43,7 +46,11 @@ function saveSearch(searchDate, selectionTextElem, eventHTML) {
   console.log(searchDate, selectionTextElem, eventHTML)
   const selection = selectionTextElem.textContent
   const savedSearches = JSON.parse(localStorage.getItem('savedSearches') || "[]")
+  if (selection.trim, searchDate, eventHTML) {
   savedSearches.push({type: selection.trim(), search: searchDate, eventHTML})
+  } else {
+    console.log("no eventHTML data")
+  }
   localStorage.setItem('savedSearches', JSON.stringify(savedSearches))
 }
 
@@ -181,6 +188,9 @@ function seeHTML(scriptHTML) {
   scriptHTML.scrollIntoView({ behavior: 'smooth' })
 }
 //end of working javascript
+
+
+
 
 
 

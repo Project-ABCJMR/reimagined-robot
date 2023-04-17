@@ -150,19 +150,3 @@ async function getKeyWordEvent(searchDate) {
   
   
   }
-  
-    //   )
-    // )
-    // console.log(allEventsData)
-    // eventHTML = renderAllEvents(allEventsData)
-    // getItToDom(eventHTML)
-    // const historicalEventsElem = document.getElementById("historicalEvents")
-    // historicalEventsElem.style.display = "block"
-    // seeHTML(scriptHTML)
-// }
-
-// function renderImgs(imgs) {
-//     const imgHTML = imgs.map(item => 
-    
-//     )
-// }
