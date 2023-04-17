@@ -1,4 +1,4 @@
-function getKeyWordEvent(searchDate) {
+async function getKeyWordEvent(searchDate) {
     // const myHeaders = new Headers();
     // myHeaders.append("X-Api-Key", "cVYAGyxVsjKIeUf3l0dufoGDRN5uh06eJhAPjFdL");
     // const requestOptions = {
@@ -28,43 +28,95 @@ function getKeyWordEvent(searchDate) {
     //          console.log("nothing")
     //      }
     // })
-const imgs = []
-const totalPages = 6
-currentPage = 1
-console.log(currentPage)
-const harvardURL = `https://api.harvardartmuseums.org/object?&apikey=28d8f398-d2ea-4c6c-bfe0-53c46eed6acb&hasimage=1&keyword=${searchDate}&q=NOT+image.description:null&page=`
-console.log(harvardURL + currentPage)
+  
+  const imgs = []
+  const totalPages = 6
+  currentPage = 1
+  console.log(currentPage)
+  const harvardURL = `https://api.harvardartmuseums.org/object?&apikey=28d8f398-d2ea-4c6c-bfe0-53c46eed6acb&hasimage=1&keyword=${searchDate}&q=NOT+image.description:null&page=`
+  console.log(harvardURL + currentPage)
     console.log(totalPages)
+    const fetchedImgs = []
     for(let currentPage = 1; currentPage <= totalPages; currentPage++ ){
-    fetch(harvardURL + currentPage) 
-    .then(response => {
-        console.log("fetch to harvard url succeeded", response);
+    const waitForImages = fetch(harvardURL + currentPage) ;
+    fetchedImgs.push(waitForImages)
+    }
+  
+    try {
+      const responses = await Promise.all(fetchedImgs)
+        
+      for (const response of responses) {
         if (response.ok) {
-           return response.json();
-        } else {
-            throw new Error("harvard fetch response no good");
-        } 
-    })   
-    .then(data => {
-        console.log(data)
+           const data = await response.json();
+      
         data.records.forEach(record => {
             if (record.images && record.images[0] && record.images[0].baseimageurl) {
                 console.log(record.images[0].baseimageurl)
                 const imgURL = record.images[0].baseimageurl
                 imgs.push(imgURL)
                 console.log(imgs)
-                
-
-            } else if (!record.images || !record.images[0] || !record.images[0].baseimageurl) {
-                console.log('no baseimage url')
+  
+            }   else if (!record.images || !record.images[0] || !record.images[0].baseimageurl) {
+              console.log('no baseimage url')
+          } 
+          })
+            } 
+            
             }
-        })
-    })
-
-
-
-
-
+        } catch (error) {
+        console.error('Error fetching images:', error.message);
+      }
+  
+    try {
+      const pageSize = 1;
+      let currentPage = 1;
+      function renderImages() {
+        const displayedImg = imgs[currentPage-1];
+        const imgElemHTML = `<img src="${displayedImg}">`;
+        imgElem.innerHTML = imgElemHTML
+  
+        previousBtn.disabled = currentPage === 1
+        nextBtn.disabled = lastPage
+      }
+      
+      function showPreviousPage() {
+        if (currentPage > 1) {
+          currentPage--;
+          renderImages();
+        }
+      }
+  
+      
+    
+    
+  
+    previousBtn.addEventListener('click', showPreviousPage())
+    nextBtn.addEventListener('click', showNextPage())
+  
+    function showPreviousPage() {
+      if(currentPage > 1) {
+          currentPage--;
+          renderImages()
+      }
+  }
+  
+  function showNextPage() {
+    if (currentPage < totalPages) {
+      currentPage++;
+      renderImages();
+    }
+  }
+  
+  renderImages()
+  
+  
+  } catch (error) {
+    console.error('Error rendering images', error.message)
+  }
+  
+  
+  
+  
     const myHeaders = new Headers();
     myHeaders.append("X-Api-Key", "cVYAGyxVsjKIeUf3l0dufoGDRN5uh06eJhAPjFdL");
     const requestOptions = {
@@ -73,18 +125,15 @@ console.log(harvardURL + currentPage)
         redirect: 'follow'
     };
     console.log("fetching url:", keyWordURL + searchDate)
-    fetch(keyWordURL + searchDate, requestOptions)
-    .then(response => {
-        if (response.ok) {
-            return response.json();
-        } else {
-            throw new Error("Network response was not ok");
-        }
-    })
-    .then(result => {
-    const allEventsData = result;
+    try {
+      const response = await fetch(keyWordURL + searchDate, requestOptions);
+      if (!response.ok) {
+        throw new Error("response no good")
+      }
+    const allEventsData = await response.json()
     const eventHTML = renderAllEvents(allEventsData);
-
+    saveSearch(searchDate, selectionTextElem, eventHTML)
+  
     
     getItToDom(eventHTML);
     
@@ -94,19 +143,14 @@ console.log(harvardURL + currentPage)
     seeHTML(scriptHTML)
     
     
-
-    
-})
-
-
-    .catch(error => {
+  } catch (error) {
     console.error("Error:", error.message);
-    });
-}
-
-
-
-}
+  }
+  
+  
+  
+  }
+  
     //   )
     // )
     // console.log(allEventsData)
