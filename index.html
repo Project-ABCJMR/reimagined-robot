@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="icon" href="assets/images/Art&HistoricFavicon.png" type="image/png">
-    
+    <script defer src="./assets/js/keyWordSearchScript.js"></script>
     <script defer src="./assets/js/script.js"></script>
 </head>
 <body>
@@ -51,13 +51,89 @@
     </nav>  
         
     <div>
+        <!-- <div>
         <h2>Search a Specific Date</h2>
         <form id="search-form">
             <input type="textarea" id="searchText" placeholder="Enter a date">
             <button type="submit">Search</button>
         </form>
-    </div>  
+    </div>   -->
+
     </nav>
+    <!--searchbar-->
+    <div class="columns">
+        <div class="column is-2">
+                <h2>Search a Specific Date</h2>
+                <form id="search-form">
+                    <input type="textarea" id="searchText" placeholder="Enter a date">
+                <button type="submit">Search</button>
+                </form>
+        </div>    
+                <!-- adding drop down selection for keyword or year selection-->
+                <div id="dropDown" class="dropdown is-hoverable column is-1">
+                    <div class="dropdown-trigger">
+                        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
+                            <span id="selectionText">Select Search Type</span>
+                            <span class="icon is-small">
+                              <i class="fas fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+                        <div class="dropdown-content">
+                            <div class="dropdown-item">
+                              <p>Please select "Year" or "Key Word" before searching. For Key Word, enter a key word or phrase associated with your desired search. For Year, enter a year for the century you would like to search</p>
+                            </div>
+                            <hr class="dropdown-divider">
+                            <button class="button" id="keyWordURL" aria-haspopup="true" aria-controls="dropdown-menu3">
+                                <span>Key Word</span>
+                                <span class="icon is-small">
+                                  <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                              </button>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                              This is a link
+                            </a>
+                            <hr class="dropdown-divider">
+                            <button class="button" id="yearURL" aria-haspopup="true" aria-controls="dropdown-menu3">
+                                <span>Year</span>
+                                <span class="icon is-small">
+                                  <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                              </button>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div> 
+            <!--div for content rendering-->              
+    <div class="mainContent"> 
+        <div id="h1Div">
+            <h1 id="historicalEvents" style="display: none">Historical Events</h1>   
+        </div> 
+        <div id="harvardImgs">
+            <div id="imgElem"></div>
+            <div id="pagination-container">
+                <button class="scorelist-buttons" id="previous">Previous</button>
+                <button class="scorelist-buttons" id="next">Next</button>
+        </div>   
+        <div  id="renderHTML" style="max-width: 100vw; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-evenly"></div>
+        <!-- <p>this is the test</p> -->
+    </div>
+    <!--modal for invalid search input-->
+    <div class="modal" id="invalidYear">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <p class="modal-card-title has-text-grey-light">Please enter a valid year, using the numerical keys.
+                If you would like to search for a century bc then use the "-" key before the year ie -300 for 300bc.
+            </p>
+        </div>
+        <button id="closeModal"class="modal-close is-large" aria-label="close"></button>
+      </div>
+
+ <!-- <button class="btn"> Oogabooga </button> -->
+
     
     <div class="mainContent"></div>
     <div id="renderHTML"></div>

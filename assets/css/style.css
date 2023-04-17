@@ -1,16 +1,22 @@
 /*hello yall this is the style sheet <3 */
 
+
 *{
-    background-color: #CFC8B4;
+    /* background-color: #CFC8B4; */
     color: #222B0F;
     /*this color is temporary*/
     margin: 0;
     padding: 0;
+    
+    
+
 }
 
 body{
     width: 100%;
+    padding: 20px 20px;
 }
+
 h1{
     color:white;
     /*text-shadow: 2px 2px 4px #000000;*/
@@ -30,9 +36,9 @@ h1{
     width: 100%;
   }
 
-#favicon{
-    display: flex;
-    justify-content: flex-start;
+
+.favicon{
+    height: fit-content; 
     position: relative;
     left: 60px;
     top: 0px;
@@ -69,10 +75,10 @@ h1{
      
   }
 
-.navbar .nav-container a:hover{
+/* .navbar .nav-container a:hover{
      background-color: #CFC8B4;
   }
-  
+   */
 .nav-container {
     display: flex;
     position: relative;
@@ -176,36 +182,56 @@ h1{
     display: none;
   }
 
-  /* this marks the start of the fetch html -bv*/
-  
+  .eventText {
+    margin-top: 20px;
+    padding: 5px 5px;
+    background-color:rgb(253, 253, 253);
+    border-radius: 7px;   
+}
 
-  .artsection  {
-    width: auto;
-    
-}/*this is for the desktop version of the site css*/
-.artimg{
+#historicalEvents {
+    width: 100%;
     display: flex;
     justify-content: center;
-    padding: 0 0 0 0px;
-  }
+    align-content: center;
+    text-align: center;
+    font-size: 60px;
+    margin-bottom: 20px;
+    color:#222B0F
+}
 
+.eventText {
+  background-color:rgb(235, 248, 248) !important;
+  margin: 5px 5px;
+  padding: 4px 6px;
+}
+
+#mainContent{
+  display: flex;
+  flex: 1 1 100vw;
+}
+
+#h1Div h1 {
+  max-width: 2000px;
+}
+
+
+.modal {
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 30px;
+  flex: 1 1 400px;
+  max-height: 300px;
   
-  .historyfact{
-      display: flex;
-      justify-content: center;
-      padding: 50px;
-    }
-    
-    section ul li{
-        margin: 50px;
-        margin
-        padding: 10px;
-        border: 15px;
-        
-        
-    }
+}
 
-    /*this starts the mobile version css*/
-    @media screen (max-width:700px) {
-        
-    }
+.modal-content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 255, 255);
+}
