@@ -1,45 +1,17 @@
 async function getKeyWordEvent(searchDate) {
-    // const myHeaders = new Headers();
-    // myHeaders.append("X-Api-Key", "cVYAGyxVsjKIeUf3l0dufoGDRN5uh06eJhAPjFdL");
-    // const requestOptions = {
-    //     method: 'GET',
-    //     headers: myHeaders,
-    //     redirect: 'follow'
-    // };
-    
-    
-    // // const firstEvent = await Promise.all (
-    // //   searchDates.map(async (text) => {
-    // //   const response = await 
-    // fetch(keyWordURL + searchDate, requestOptions)
-    // console.log(keyWordURL + searchDate)
-    // .then(response => {
-    //     if (response.ok) {
-    //         return response.json()
-    //     }   else {
-    //         throw new Error('Network response was not ok');
-    //     }    
-    // })
-    // .then(historicalEventsData => {
-    //     if (historicalEventsData.length > 0) {
-    //     const firstEvent = historicalEventsData;
-    //        console.log(firstEvent)
-    //      } else {
-    //          console.log("nothing")
-    //      }
-    // })
-  
-  const imgs = []
-  const totalPages = 6
-  currentPage = 1
-  console.log(currentPage)
-  const harvardURL = `https://api.harvardartmuseums.org/object?&apikey=28d8f398-d2ea-4c6c-bfe0-53c46eed6acb&hasimage=1&keyword=${searchDate}&q=NOT+image.description:null&page=`
-  console.log(harvardURL + currentPage)
+
+
+    const imgs = []
+    const totalPages = 6
+    currentPage = 1
+    console.log(currentPage)
+    const harvardURL = `https://api.harvardartmuseums.org/object?&apikey=28d8f398-d2ea-4c6c-bfe0-53c46eed6acb&hasimage=1&keyword=${searchDate}&q=NOT+image.description:null&page=`
+    console.log(harvardURL + currentPage)
     console.log(totalPages)
     const fetchedImgs = []
-    for(let currentPage = 1; currentPage <= totalPages; currentPage++ ){
-    const waitForImages = fetch(harvardURL + currentPage) ;
-    fetchedImgs.push(waitForImages)
+    for(let currentPage = 1; currentPage <= totalPages; currentPage++ ) {
+        const waitForImages = fetch(harvardURL + currentPage) ;
+        fetchedImgs.push(waitForImages)
     }
   
     try {
@@ -48,12 +20,14 @@ async function getKeyWordEvent(searchDate) {
       for (const response of responses) {
         if (response.ok) {
            const data = await response.json();
+           console.log(data)
       
         data.records.forEach(record => {
-            if (record.images && record.images[0] && record.images[0].baseimageurl) {
+            if (record.images && record.images[0] && record.images[0].baseimageurl && record.title ) {
                 console.log(record.images[0].baseimageurl)
                 const imgURL = record.images[0].baseimageurl
-                imgs.push(imgURL)
+                const imgTitle = record.title
+                imgs.push( {imgURL, imgTitle} )
                 console.log(imgs)
   
             }   else if (!record.images || !record.images[0] || !record.images[0].baseimageurl) {
@@ -71,28 +45,28 @@ async function getKeyWordEvent(searchDate) {
       const pageSize = 1;
       let currentPage = 1;
       function renderImages() {
-        const displayedImg = imgs[currentPage-1];
+        const displayedImg = imgs[currentPage-1].imgURL;
         const imgElemHTML = `<img src="${displayedImg}">`;
+        const displayedImgTitle = imgs[currentPage-1].imgTitle
+        imgTitleElem.innerHTML = displayedImgTitle
+        console.log(displayedImg)
         imgElem.innerHTML = imgElemHTML
   
         previousBtn.disabled = currentPage === 1
         nextBtn.disabled = lastPage
       }
       
-      function showPreviousPage() {
+    function showPreviousPage() {
         if (currentPage > 1) {
           currentPage--;
           renderImages();
         }
-      }
+    }
   
-      
-    
-    
-  
+
     previousBtn.addEventListener('click', showPreviousPage())
     nextBtn.addEventListener('click', showNextPage())
-  
+
     function showPreviousPage() {
       if(currentPage > 1) {
           currentPage--;
@@ -144,7 +118,7 @@ async function getKeyWordEvent(searchDate) {
     
     
   } catch (error) {
-    console.error("Error:", error.message);
+    console.error("Error");
   }
   
   
