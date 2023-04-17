@@ -42,55 +42,55 @@ async function getKeyWordEvent(searchDate) {
       }
   
     try {
-      const pageSize = 1;
-      let currentPage = 1;
-      function renderImages() {
-        const displayedImg = imgs[currentPage-1].imgURL;
-        const imgElemHTML = `<img src="${displayedImg}">`;
-        const displayedImgTitle = imgs[currentPage-1].imgTitle
-        imgTitleElem.innerHTML = displayedImgTitle
-        console.log(displayedImg)
-        imgElem.innerHTML = imgElemHTML
+        const lastPage = imgs.length
+        console.log(lastPage)
+        const pageSize = 1;
+        let currentPage = 1;
+        function renderImages() {
+            const displayedImg = imgs[currentPage-1].imgURL;
+            const imgElemHTML = `<img src="${displayedImg}">`;
+            const displayedImgTitle = imgs[currentPage-1].imgTitle
+            imgTitleElem.innerHTML = displayedImgTitle
+            console.log(displayedImg)
+            imgElem.innerHTML = imgElemHTML
+            console.log(currentPage)
   
-        previousBtn.disabled = currentPage === 1
-        nextBtn.disabled = lastPage
+            previousBtn.disabled = currentPage === 1
+            nextBtn.disabled = currentPage === lastPage
       }
-      
+
     function showPreviousPage() {
         if (currentPage > 1) {
-          currentPage--;
-          renderImages();
+            currentPage--;
+            renderImages();
         }
     }
-  
 
-    previousBtn.addEventListener('click', showPreviousPage())
-    nextBtn.addEventListener('click', showNextPage())
+    previousBtn.addEventListener('click', showPreviousPage)
+    nextBtn.addEventListener('click', showNextPage)
 
     function showPreviousPage() {
-      if(currentPage > 1) {
-          currentPage--;
-          renderImages()
-      }
-  }
-  
-  function showNextPage() {
-    if (currentPage < totalPages) {
-      currentPage++;
-      renderImages();
+        console.log("clicked previous button")
+        if(currentPage > 1) {
+            currentPage--;
+            renderImages()
+        }
     }
-  }
-  
-  renderImages()
-  
-  
-  } catch (error) {
+
+    function showNextPage() {
+        console.log("clicked next button")
+        if (currentPage < lastPage) {
+            currentPage++;
+            renderImages();
+        }
+    }
+
+    renderImages()
+
+    } catch (error) {
     console.error('Error rendering images', error.message)
-  }
-  
-  
-  
-  
+    }
+
     const myHeaders = new Headers();
     myHeaders.append("X-Api-Key", "cVYAGyxVsjKIeUf3l0dufoGDRN5uh06eJhAPjFdL");
     const requestOptions = {
@@ -100,14 +100,15 @@ async function getKeyWordEvent(searchDate) {
     };
     console.log("fetching url:", keyWordURL + searchDate)
     try {
-      const response = await fetch(keyWordURL + searchDate, requestOptions);
-      if (!response.ok) {
+        const response = await fetch(keyWordURL + searchDate, requestOptions);
+        if (!response.ok) {
         throw new Error("response no good")
-      }
-    const allEventsData = await response.json()
+        }
+    
+        const allEventsData = await response.json()
     const eventHTML = renderAllEvents(allEventsData);
     saveSearch(searchDate, selectionTextElem, eventHTML)
-  
+
     
     getItToDom(eventHTML);
     
@@ -117,10 +118,8 @@ async function getKeyWordEvent(searchDate) {
     seeHTML(scriptHTML)
     
     
-  } catch (error) {
+    } catch (error) {
     console.error("Error");
-  }
-  
-  
-  
-  }
+    }
+
+}
