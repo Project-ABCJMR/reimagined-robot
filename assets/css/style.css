@@ -6,9 +6,6 @@
     /*this color is temporary*/
     margin: 0;
     padding: 0;
-    
-    
-
 }
 
 body{
@@ -33,12 +30,16 @@ h1{
     width: 100%;
   }
 
-.favicon{
-    height: fit-content; 
+#favicon{
+    display: flex;
+    justify-content: flex-start;
     position: relative;
     left: 60px;
-    top: 5px;
+    top: 0px;
     
+}
+.favicon:hover{
+    background-color: transparent;
 }
 .nav-container {
     display: flex;
@@ -49,6 +50,7 @@ h1{
   
 .navbar .menu-items {
     display: flex;
+    
   }
   
 .navbar .nav-container li {
@@ -59,17 +61,20 @@ h1{
     text-decoration: none;
     color: #0e2431;
     font-weight: bolder;
-    font-size: 1.2rem;
-    padding: 0.7rem;
+    font-size: 3rem;
+    padding: 1rem;
+    position: relative;
+   
+
      
   }
-  
+
 .navbar .nav-container a:hover{
-     
+     background-color: #CFC8B4;
   }
   
 .nav-container {
-    display: f;
+    display: flex;
     position: relative;
     height: 60px;
   }
