@@ -10,6 +10,7 @@ const keyWordURL = "https://api.api-ninjas.com/v1/historicalevents?text="
 const invalidYear = document.getElementById("invalidYear")
 const savedSearches = JSON.parse(localStorage.getItem('savedSearches') || "[]")
 const historicalEventsElem = document.getElementById("historicalEvents")
+const harvardimgs = document.getElementById("harvardimgs")
 
 // change selectionTextElem to the choice
 // function for getting text data
@@ -37,10 +38,12 @@ keyWordURLElem.addEventListener("click", event => {
   historicalEventsElem.style.display = "none"
 })
 
-function saveSearch(searchDate, selectionTextElem) {
+function saveSearch(searchDate, selectionTextElem, eventHTML) {
+  console.log("saveSearch called"); 
+  console.log(searchDate, selectionTextElem, eventHTML)
   const selection = selectionTextElem.textContent
   const savedSearches = JSON.parse(localStorage.getItem('savedSearches') || "[]")
-  savedSearches.push({type: selection.trim(), search: searchDate})
+  savedSearches.push({type: selection.trim(), search: searchDate, eventHTML})
   localStorage.setItem('savedSearches', JSON.stringify(savedSearches))
 }
 
@@ -59,11 +62,11 @@ form.addEventListener('submit', event => {
 
     console.log("good search")
     getEvent(searchDate);
-    saveSearch(searchDate, selectionTextElem)
     console.log(savedSearches)
 
   } else if (selectionTextElem.textContent.trim() === "Key Word" && searchDate.trim().length > 0 && isNaN(searchDate)) {
     getKeyWordEvent(searchDate)
+    saveSearch(searchDate, selectionTextElem)
     
     // saveSearch()
     
@@ -122,10 +125,10 @@ for (let i = 0; i < randomNumbers.length; i++) {
 }
 console.log(searchDates);
 
-getYearData(searchDates)
+getYearData(searchDates, searchDate)
 }
 
-async function getYearData(searchDates) {
+async function getYearData(searchDates, searchDate) {
     const myHeaders = new Headers();
     myHeaders.append("X-Api-Key", "cVYAGyxVsjKIeUf3l0dufoGDRN5uh06eJhAPjFdL");
     const requestOptions = {
@@ -151,7 +154,7 @@ async function getYearData(searchDates) {
     console.log(allEventsData)
     eventHTML = renderAllEvents(allEventsData)
     getItToDom(eventHTML)
-    
+    saveSearch(searchDate, selectionTextElem, eventHTML);
     historicalEventsElem.style.display = "block"
     seeHTML(scriptHTML)
 }

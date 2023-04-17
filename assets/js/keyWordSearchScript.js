@@ -28,6 +28,41 @@ function getKeyWordEvent(searchDate) {
     //          console.log("nothing")
     //      }
     // })
+const imgs = []
+const totalPages = 6
+currentPage = 1
+console.log(currentPage)
+const harvardURL = `https://api.harvardartmuseums.org/object?&apikey=28d8f398-d2ea-4c6c-bfe0-53c46eed6acb&hasimage=1&keyword=${searchDate}&q=NOT+image.description:null&page=`
+console.log(harvardURL + currentPage)
+    console.log(totalPages)
+    for(let currentPage = 1; currentPage <= totalPages; currentPage++ ){
+    fetch(harvardURL + currentPage) 
+    .then(response => {
+        console.log("fetch to harvard url succeeded", response);
+        if (response.ok) {
+           return response.json();
+        } else {
+            throw new Error("harvard fetch response no good");
+        } 
+    })   
+    .then(data => {
+        console.log(data)
+        data.records.forEach(record => {
+            if (record.images && record.images[0] && record.images[0].baseimageurl) {
+                console.log(record.images[0].baseimageurl)
+                const imgURL = record.images[0].baseimageurl
+                imgs.push(imgURL)
+                console.log(imgs)
+                
+
+            } else if (!record.images || !record.images[0] || !record.images[0].baseimageurl) {
+                console.log('no baseimage url')
+            }
+        })
+    })
+
+
+
 
 
     const myHeaders = new Headers();
@@ -49,29 +84,28 @@ function getKeyWordEvent(searchDate) {
     .then(result => {
     const allEventsData = result;
     const eventHTML = renderAllEvents(allEventsData);
+
+    
     getItToDom(eventHTML);
+    
     console.log(result);
     
     historicalEventsElem.style.display = "block"
     seeHTML(scriptHTML)
-    })
+    
+    
+
+    
+})
+
+
     .catch(error => {
     console.error("Error:", error.message);
     });
-
-
-    const totalPages = 6
-    for(let currentPage = 1; currentPage <= totalPages; currentPage++ ){
-    fetch("https://api.harvardartmuseums.org/object?&apikey=28d8f398-d2ea-4c6c-bfe0-53c46eed6acb&hasimage=1&keyword=" + searchDate +"&q=NOT+image.description:null") 
-    .then(response => response.json()) 
-    .then(data => {
-        data.records.forEach(record => {
-            if (record.baseimageurl) {
-                console.log(record.baseimageurl)
-            }
-        })
-    })
 }
+
+
+
 }
     //   )
     // )
@@ -81,4 +115,10 @@ function getKeyWordEvent(searchDate) {
     // const historicalEventsElem = document.getElementById("historicalEvents")
     // historicalEventsElem.style.display = "block"
     // seeHTML(scriptHTML)
+// }
+
+// function renderImgs(imgs) {
+//     const imgHTML = imgs.map(item => 
+    
+//     )
 // }
