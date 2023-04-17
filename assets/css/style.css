@@ -62,7 +62,7 @@ h1{
     color: #0e2431;
     font-weight: bolder;
     font-size: 3rem;
-    padding: 1rem;
+    padding: 0rem;
     position: relative;
    
 
@@ -175,3 +175,37 @@ h1{
 .nav-container input[type="checkbox"]:checked ~ .logo{
     display: none;
   }
+
+  /* this marks the start of the fetch html -bv*/
+  
+
+  .artsection  {
+    width: auto;
+    
+}/*this is for the desktop version of the site css*/
+.artimg{
+    display: flex;
+    justify-content: center;
+    padding: 0 0 0 0px;
+  }
+
+  
+  .historyfact{
+      display: flex;
+      justify-content: center;
+      padding: 50px;
+    }
+    
+    section ul li{
+        margin: 50px;
+        margin
+        padding: 10px;
+        border: 15px;
+        
+        
+    }
+
+    /*this starts the mobile version css*/
+    @media screen (max-width:700px) {
+        
+    }
