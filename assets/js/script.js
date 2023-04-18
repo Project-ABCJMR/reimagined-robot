@@ -1,4 +1,4 @@
-const form = document.querySelector('form');
+const form = document.getElementById("search");
 const searchText = document.getElementById('searchText');
 const scriptHTML = document.getElementById('renderHTML')
 const dropDown = document.getElementById("dropDown")
