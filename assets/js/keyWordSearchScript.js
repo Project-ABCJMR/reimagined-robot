@@ -19,8 +19,8 @@ async function getKeyWordEvent(searchDate) {
         
       for (const response of responses) {
         if (response.ok) {
-           const data = await response.json();
-           console.log(data)
+          const data = await response.json();
+          console.log(data)
       
         data.records.forEach(record => {
             if (record.images && record.images[0] && record.images[0].baseimageurl && record.title ) {
@@ -58,17 +58,17 @@ async function getKeyWordEvent(searchDate) {
             previousBtn.disabled = currentPage === 1
             nextBtn.disabled = currentPage === lastPage
       }
-
+  
     function showPreviousPage() {
         if (currentPage > 1) {
             currentPage--;
             renderImages();
         }
     }
-
+  
     previousBtn.addEventListener('click', showPreviousPage)
     nextBtn.addEventListener('click', showNextPage)
-
+  
     function showPreviousPage() {
         console.log("clicked previous button")
         if(currentPage > 1) {
@@ -76,7 +76,7 @@ async function getKeyWordEvent(searchDate) {
             renderImages()
         }
     }
-
+  
     function showNextPage() {
         console.log("clicked next button")
         if (currentPage < lastPage) {
@@ -84,19 +84,13 @@ async function getKeyWordEvent(searchDate) {
             renderImages();
         }
     }
-
+  
     renderImages()
-
+  
     } catch (error) {
     console.error('Error rendering images', error.message)
     }
-
-    try {
-        seeHTML(scriptHTML)
-    }   catch (error) {
-        console.error("error", error.message)
-    }
-
+  
     const myHeaders = new Headers();
     myHeaders.append("X-Api-Key", "cVYAGyxVsjKIeUf3l0dufoGDRN5uh06eJhAPjFdL");
     const requestOptions = {
@@ -114,22 +108,21 @@ async function getKeyWordEvent(searchDate) {
         const allEventsData = await response.json()
     const eventHTML = renderAllEvents(allEventsData);
     saveSearch(searchDate, selectionTextElem, eventHTML)
-
+  
     
     getItToDom(eventHTML);
-
-    
     
     console.log(result);
     
     historicalEventsElem.style.display = "block"
-
+    seeHTML(scriptHTML)
     
     
     } catch (error) {
     console.error("Error");
     }
-
-    
-
-}
+  
+  }
+  
+  
+  
