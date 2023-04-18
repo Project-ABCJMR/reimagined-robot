@@ -12,45 +12,74 @@
     <script defer src="./assets/js/script.js"></script>
 </head>
 <body>
-    <!--this is the navbar -->
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <!--<div class="navbar-brand">
-         navbar items, navbar burger... 
-         i made a temp favicon -ben
-         <a role="button menu" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-             <span aria-hidden="true"></span>
-             <span aria-hidden="true"></span>
-             <span aria-hidden="true"></span>
-            </a>
-        </div>-->
-        
-        <div class="container nav-container">
-            <a class="navbar-item" id="favicon" href="logo">
-                <img  src="assets/images/Art&HistoricFavicon.png" width="30px" height="auto">
-            </a>
-            
-            <input class="checkbox" type="checkbox" name="" id="" />
-            <div class="hamburger-lines">
-              <span class="bar bar1"></span>
-              <span class="bar bar2"></span>
-              <span class="bar bar3"></span>
-        </div> 
-        <div class="logo">
-            <h1>Art & Historic Facts</h1>
+    <!-- this is the new navbar and it will be a burger in mobile -b-->
+    <section class="hero  is-medium">
+        <div class="hero-head">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="./index.html">
+                            <img src="./assets/images/Favicon.png" width="auto" height="28">
+                        </a>
+                    
+                        <a role="button" class="navbar-burger " aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+                
+                    <aside id="navbarBasicExample" class="navbar-menu">
+                        <div class="navbar-start">
+                            <a class="navbar-item" href="index.html">
+                            Art & Historic Facts
+                            </a>
+
+                            
+                            
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link">
+                                    Where to Next?
+                                </a>
+                                
+                                <div class="navbar-dropdown">
+                                    <div class="level-item">
+                                        <div class="field has-addons">
+                                          <p class="control">
+                                            <input class="input" type="text" placeholder="Find a post">
+                                          </p>
+                                          <p class="control">
+                                            <button class="button">
+                                              
+                                            </button>
+                                          </p>
+                                        </div>
+                                      </div>
+                                    <a class="navbar-item" href="2000fetch.html">
+                                    2000
+                                    </a>
+                                    <a class="navbar-item" href="1900fetch.html">
+                                    1900
+                                    </a>
+                                    <a class="navbar-item" href="1800fetch.html">
+                                    1800
+                                    </a>
+                                    <a class="navbar-item" href="1700fetch.html">
+                                        1700
+                                    </a>
+                                    <a class="navbar-item" href="1600fetch.html">
+                                        1600
+                                    </a>
+                             </div>
+                        </div>
+                
+                        <div class="navbar-end">
+                        </div>
+                    </aside>
+            </nav>
         </div>
-
-        <ul class="menu-items">
-            <li><a href="#">2000</a></li>
-            <li><a href="#">1900</a></li>
-            <li><a href="#">1800</a></li>
-            <li><a href="#">1700</a></li>
-            <li><a href="#">1600</a></li>
-            <li><a href="#">1500</a></li>
-        </ul>
-
-    </nav>  
         
-    <div>
+        
         <!-- <div>
         <h2>Search a Specific Date</h2>
         <form id="search-form">
@@ -61,9 +90,9 @@
 
     </nav>
     <!--searchbar-->
-    <div class= flexbox>
+    <div class="columns">
         <div class="column is-2">
-                <h2>Search a Specific Date</h2>
+                <h3>Input your search here</h3>
                 <form id="search-form">
                     <input type="textarea" id="searchText" placeholder="Enter a date">
                 <button type="submit">Search</button>
@@ -75,29 +104,29 @@
                         <button class="button" id="dropDownButton" aria-haspopup="true" aria-controls="dropdown-menu2">
                             <span id="selectionText">Select Search Type</span>
                             <span class="icon is-small">
-                                <i class="fas fa-angle-down" aria-hidden="true"></i>
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
                             </span>
                         </button>
                     </div>
                     <div class="dropdown-menu" id="dropdown-menu2" role="menu">
                         <div class="dropdown-content">
                             <div class="dropdown-item">
-                                <p>Please select "Year" or "Key Word" before searching. For Key Word, enter a key word or phrase associated with your desired search. For Year, enter a year for the century you would like to search</p>
+                                <button class="button" id="yearURL" aria-haspopup="true" aria-controls="dropdown-menu3">
+                                    <span>Year</span>
+                                    <span class="icon is-small">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                    </span>
+                                </button>
                             </div>
                             <hr class="dropdown-divider">
-                            <button class="button" id="keyWordURL" aria-haspopup="true" aria-controls="dropdown-menu3">
-                                <span>Key Word</span>
-                                <span class="icon is-small">
-                                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                </span>
-                              </button>
+                                <button class="button" id="keyWordURL" aria-haspopup="true" aria-controls="dropdown-menu3">
+                                    <span>Key Word</span>
+                                    <span class="icon is-small">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                    </span>
+                                </button>
                             <hr class="dropdown-divider">
-                            <button class="button" id="yearURL" aria-haspopup="true" aria-controls="dropdown-menu3">
-                                <span>Year</span>
-                                <span class="icon is-small">
-                                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                </span>
-                              </button>
+                                <p>Please select "Year" or "Key Word" before searching. For Key Word, enter a key word or phrase associated with your desired search. For Year, enter a year for the century you would like to search</p>
                             </div>
                         </div>
                     </div>
@@ -129,19 +158,8 @@
         <button id="closeModal"class="modal-close is-large" aria-label="close"></button>
       </div>
 
- 
-
-    
-    <div class="mainContent"></div>
-    <div id="renderHTML"></div>
-
-    <section>
-
-    </section>
-    
-
-
- <button class="btn"> Oogabooga </button>
+      
+ <!-- <button class="btn"> Oogabooga </button> -->
 
 
     

@@ -1,4 +1,4 @@
-const form = document.getElementById("search");
+const form = document.querySelector('form');
 const searchText = document.getElementById('searchText');
 const scriptHTML = document.getElementById('renderHTML')
 const dropDown = document.getElementById("dropDown")
@@ -192,28 +192,7 @@ function seeHTML(scriptHTML) {
 //end of working javascript
 
 
-// this is for the burger navbar to work-b
-document.addEventListener('DOMContentLoaded', () => {
 
-  // Get all "navbar-burger" elements
-  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-  
-  // Add a click event on each of them
-  $navbarBurgers.forEach( el => {
-    el.addEventListener('click', () => {
-  
-      // Get the target from the "data-target" attribute
-      const target = el.dataset.target;
-      const $target = document.getElementById(target);
-  
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-      el.classList.toggle('is-active');
-      $target.classList.toggle('is-active');
-  
-    });
-  });
-  
-  });
 
 
 
