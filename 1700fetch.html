@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art & History in the 1700s</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <!--<link rel="stylesheet" href="./assets/css/style.css">-->
+    <link rel="icon" href="assets/images/Art&HistoricFavicon.png" type="image/png">
+    
+    <script defer src="./assets/js/script.js"></script>
+</head>
+<body>
+     <!-- this is the new navbar and it will be a burger in mobile -->
+     <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="./indextest.html">
+            <img src="/assets/images/Favicon.png" width="auto" height="28">
+          </a>
+      
+          <a role="button" class="navbar-burger " aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" href="indextest.html">
+            Art & Historic Facts
+            </a>
+      
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                Where to Next?
+              </a>
+              
+              <div class="navbar-dropdown">
+                <a class="navbar-item" href="2000fetch.html">
+                    2000
+                  </a>
+                  <a class="navbar-item" href="1900fetch.html">
+                    1900
+                  </a>
+                  <a class="navbar-item" href="1800fetch.html">
+                    1800
+                  </a>
+                  <a class="navbar-item" href="1700fetch.html">
+                      1700
+                  </a>
+                  <a class="navbar-item" href="1600fetch.html">
+                      1600
+                  </a>
+            
+              </div>
+            </div>
+          </div>
+      
+          <div class="navbar-end">
+            <!-- <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-primary">
+                  <strong>Sign up</strong>
+                </a>
+                <a class="button is-light">
+                  Log in
+                </a>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </nav>
+
+      <section class="section is-large">
+        <h1 class="title">What's going on in the 1700's</h1>
+        <h2 class="subtitle">
+          A simple container to divide your page into <strong>sections</strong>, like the one you're currently reading
+        </h2>
+  
+
+          <div class="tile is-ancestor">
+            <div class="tile is-vertical ">
+              <div class="tile">
+                <div class="tile is-parent is-vertical">
+                  <article class="tile is-child notification is-primary">
+                    <p class="title">Who made this...(Artist Name)</p>
+                    <p class="subtitle"> *insert artist name*</p>
+                  </article>
+                  <article class="tile is-child notification is-warning">
+                    <p class="title">(Date it was made)</p>
+                    <p class="subtitle"> art medium</p>
+                    <p class="subtitle"></p>
+                    <p class="subtitle">Bottom tile</p>
+                  </article>
+                </div>
+                <div class="tile is-parent">
+                  <article class="tile is-child notification is-info">
+                    <p class="title"></p>
+                    <p class="subtitle"></p>
+                    <figure class="image is-auto">
+                      <img src="https://picsum.photos/200/300?random=1">
+                    </figure>
+                  </article>
+                </div>
+              </div>
+              <div class="tile is-parent">
+                <article class="tile is-child notification is-danger">
+                  <p class="title">a FLASH in <i>HISTORY</i></p>
+                  <p class="subtitle">Aligned with the right tile</p>
+
+                  <div class="content">
+                    <!-- Content -->
+                  </div>
+                </article>
+              </div>
+            </div>
+            <!-- <div class="tile is-parent">
+              <article class="tile is-child notification is-success">
+                <div class="content">
+                  <p class="title">Tall tile</p>
+                  <p class="subtitle">With even more content</p>
+                  <div class="content">
+                    Content -->
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="tile is-ancestor">
+            <div class="tile is-6 is-vertical is-parent">
+              <div class="tile is-child box">
+                <p class="title">fact One</p>
+              </div>
+              <div class="tile is-child box">
+                <p class="title">fact Two</p>
+              </div>
+            </div>
+            <div class="tile is-6 is-vertical is-parent">
+              <div class="tile is-child box">
+                <p class="title">fact Three</p>
+              </div>
+              <div class="tile is-child box">
+                <p class="title">fact Four</p>
+              </div>
+            </div>
+          </div>
+      </section>
+
+
+
+
+    <!-- this is the js for the navbar-b -->
+  <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+        // Add a click event on each of them
+        $navbarBurgers.forEach( el => {
+        el.addEventListener('click', () => {
+
+        // Get the target from the "data-target" attribute
+        const target = el.dataset.target;
+        const $target = document.getElementById(target);
+
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+
+        });
+        });
+
+        });
+    </script>
+</body>
+</html>
