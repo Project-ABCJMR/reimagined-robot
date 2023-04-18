@@ -91,6 +91,12 @@ async function getKeyWordEvent(searchDate) {
     console.error('Error rendering images', error.message)
     }
 
+    try {
+        seeHTML(scriptHTML)
+    }   catch (error) {
+        console.error("error", error.message)
+    }
+
     const myHeaders = new Headers();
     myHeaders.append("X-Api-Key", "cVYAGyxVsjKIeUf3l0dufoGDRN5uh06eJhAPjFdL");
     const requestOptions = {
@@ -123,5 +129,7 @@ async function getKeyWordEvent(searchDate) {
     } catch (error) {
     console.error("Error");
     }
+
+    
 
 }
