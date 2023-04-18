@@ -12,8 +12,10 @@ const savedSearches = JSON.parse(localStorage.getItem('savedSearches') || "[]")
 const historicalEventsElem = document.getElementById("historicalEvents")
 const harvardImgs = document.getElementById("harvardimgs")
 const imgElem = document.getElementById("imgElem")
+const imgTitleElem = document.getElementById("imgTitle")
 const previousBtn = document.getElementById("previous")
 const nextBtn = document.getElementById("next")
+
 
 // change selectionTextElem to the choice
 // function for getting text data
