@@ -8,37 +8,21 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="icon" href="assets/images/Art&HistoricFavicon.png" type="image/png">
-    <script defer src="./assets/js/keyWordSearchScript.js"></script>
-    <script defer src="./assets/js/script.js"></script>
 </head>
 <body>
     <!--this is the navbar -->
     <nav class="navbar" role="navigation" aria-label="main navigation">
-        <!--<div class="navbar-brand">
-         navbar items, navbar burger... 
-         i made a temp favicon -ben
-         <a role="button menu" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-             <span aria-hidden="true"></span>
-             <span aria-hidden="true"></span>
-             <span aria-hidden="true"></span>
+        <div class="navbar-brand">
+            <!-- navbar items, navbar burger... -->
+            <a class="navbar-item" href="logo">
+                <img src="assets/images/Art&HistoricFavicon.png" width="auto" height="auto">
             </a>
-        </div>-->
-        
-        <div class="container nav-container">
-            <a class="navbar-item" id="favicon" href="logo">
-                <img  src="assets/images/Art&HistoricFavicon.png" width="30px" height="auto">
+            <a role="button menu" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
             </a>
-            
-            <input class="checkbox" type="checkbox" name="" id="" />
-            <div class="hamburger-lines">
-              <span class="bar bar1"></span>
-              <span class="bar bar2"></span>
-              <span class="bar bar3"></span>
-        </div> 
-        <div class="logo">
-            <h1>Art & Historic Facts</h1>
         </div>
-
         <ul class="menu-items">
             <li><a href="#">2000</a></li>
             <li><a href="#">1900</a></li>
@@ -47,103 +31,24 @@
             <li><a href="#">1600</a></li>
             <li><a href="#">1500</a></li>
         </ul>
-
-    </nav>  
-        
+    </nav>
     <div>
-        <!-- <div>
         <h2>Search a Specific Date</h2>
         <form id="search-form">
             <input type="textarea" id="searchText" placeholder="Enter a date">
             <button type="submit">Search</button>
         </form>
-    </div>   -->
-
-    </nav>
-    <!--searchbar-->
-    <div class= flexbox>
-        <div class="column is-2">
-                <h2>Search a Specific Date</h2>
-                <form id="search-form">
-                    <input type="textarea" id="searchText" placeholder="Enter a date">
-                <button type="submit">Search</button>
-                </form>
-        </div>    
-                <!-- adding drop down selection for keyword or year selection-->
-                <div id="dropDown" class="dropdown is-hoverable column is-2">
-                    <div class="dropdown-trigger">
-                        <button class="button" id="dropDownButton" aria-haspopup="true" aria-controls="dropdown-menu2">
-                            <span id="selectionText">Select Search Type</span>
-                            <span class="icon is-small">
-                                <i class="fas fa-angle-down" aria-hidden="true"></i>
-                            </span>
-                        </button>
-                    </div>
-                    <div class="dropdown-menu" id="dropdown-menu2" role="menu">
-                        <div class="dropdown-content">
-                            <div class="dropdown-item">
-                                <p>Please select "Year" or "Key Word" before searching. For Key Word, enter a key word or phrase associated with your desired search. For Year, enter a year for the century you would like to search</p>
-                            </div>
-                            <hr class="dropdown-divider">
-                            <button class="button" id="keyWordURL" aria-haspopup="true" aria-controls="dropdown-menu3">
-                                <span>Key Word</span>
-                                <span class="icon is-small">
-                                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                </span>
-                              </button>
-                            <hr class="dropdown-divider">
-                            <button class="button" id="yearURL" aria-haspopup="true" aria-controls="dropdown-menu3">
-                                <span>Year</span>
-                                <span class="icon is-small">
-                                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                </span>
-                              </button>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-            </div> 
-            <!--div for content rendering-->              
-    <div class="mainContent"> 
-        <div id="h1Div">
-            <h1 id="historicalEvents" style="display: none">Historical Events</h1>   
-        </div> 
-        <div id="harvardImgs" style="display: flex; align-items: center; justify-content: center; min-width: 100vw; flex-direction: column;">
-            <h2 id="imgTitle"></h2>
-            <div id="imgElem"></div>
-            <div id="pagination-container">
-                <button class="imgBtn" id="previous">Previous</button>
-                <button class="imgBtn" id="next">Next</button>
-        </div>   
-        <div  id="renderHTML" style="max-width: 100vw; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-evenly"></div>
-        <!-- <p>this is the test</p> -->
     </div>
-    <!--modal for invalid search input-->
-    <div class="modal" id="invalidYear">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-            <p class="modal-card-title has-text-grey-light">Please enter a valid year, using the numerical keys.
-                If you would like to search for a century bc then use the "-" key before the year ie -300 for 300bc.
-            </p>
-        </div>
-        <button id="closeModal"class="modal-close is-large" aria-label="close"></button>
-      </div>
-
- 
-
-    
     <div class="mainContent"></div>
     <div id="renderHTML"></div>
-
-    <section>
-
+    <section id="century-btns">
+        <button id="btn-2000s" class="btn">2000s</button>
+        <button id="btn-1900s" class="btn">1900s</button>
+        <button id="btn-1800s" class="btn">1800s</button>
+        <button id="btn-1700s" class="btn">1700s</button>
+        <button id="btn-1600s" class="btn">1600s</button>
+        <button id="btn-1500s" class="btn">1500s</button>
     </section>
-    
-
-
- <button class="btn"> Oogabooga </button>
-
-
-    
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>

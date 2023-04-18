@@ -132,4 +132,6 @@ async function getKeyWordEvent(searchDate) {
 
     
 
+
 }
+window.getKeyWordEvent = getKeyWordEvent;
