@@ -10,6 +10,7 @@
     <link rel="icon" href="assets/images/Art&HistoricFavicon.png" type="image/png">
     <script defer src="./assets/js/keyWordSearchScript.js"></script>
     <script defer src="./assets/js/script.js"></script>
+    <script defer src="./assets/js/pastSearches.js"></script>
 </head>
 <body>
     <!-- this is the new navbar and it will be a burger in mobile -b-->
@@ -90,14 +91,26 @@
 
     </nav>
     <!--searchbar-->
-    <div class="columns">
+    <div class="columns container">
         <div class="column is-2">
                 <h3>Input your search here</h3>
                 <form id="search-form">
                     <input type="textarea" id="searchText" placeholder="Enter a date">
                 <button type="submit">Search</button>
                 </form>
-        </div>    
+
+                <!-- Container holding the previous searches button and a hidden box with past searches content -->
+                <div class="container">
+                    <button id="showPastSearchesBtn" class="button">Previous Searches</button>
+                    <div id="pastSearchesBox" class="hidden">
+                      <div id="pastSearchesContent" class="content"></div>
+                    </div>
+                  </div>
+                  
+                  
+
+         
+
                 <!-- adding drop down selection for keyword or year selection-->
                 <div id="dropDown" class="dropdown is-hoverable column is-2">
                     <div class="dropdown-trigger">
@@ -159,7 +172,7 @@
       </div>
 
       
- <!-- <button class="btn"> Oogabooga </button> -->
+ 
 
 
     
