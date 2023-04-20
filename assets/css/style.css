@@ -145,7 +145,7 @@ left: 50%;
 transform: translate(-50%, -50%);
 color: rgb(255, 255, 255);
 text-align: center;
-
+}
 
 
 .columns {
@@ -186,7 +186,7 @@ border: 1px solid #ccc;
 border-radius: 3px;
 outline: none;
 transition: all 0.3s;
-
+}
 
 input[type="textarea"]:focus {
   border-color: #1b82db;
