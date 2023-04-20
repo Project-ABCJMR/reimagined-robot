@@ -1,4 +1,4 @@
-![TimeTravelr](URL or file path)
+![TimeTravelr](assets/images/Screenshot 2023-04-20 at 6.39.03 PM.png)
 
 # ✨ Welcome to TimeTravelr ✨
 
