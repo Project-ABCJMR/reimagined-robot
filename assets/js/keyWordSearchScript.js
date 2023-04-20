@@ -21,7 +21,7 @@ async function getKeyWordEvent(searchDate) {
         if (response.ok) {
           const data = await response.json();
           console.log(data)
-      
+
         data.records.forEach(record => {
             if (record.images && record.images[0] && record.images[0].baseimageurl && record.title ) {
                 console.log(record.images[0].baseimageurl)
@@ -29,18 +29,18 @@ async function getKeyWordEvent(searchDate) {
                 const imgTitle = record.title
                 imgs.push( {imgURL, imgTitle} )
                 console.log(imgs)
-  
+
             }   else if (!record.images || !record.images[0] || !record.images[0].baseimageurl) {
               console.log('no baseimage url')
-          } 
-          })
+        } 
+        })
             } 
             
             }
         } catch (error) {
         console.error('Error fetching images:', error.message);
-      }
-  
+    }
+
     try {
         const lastPage = imgs.length
         console.log(lastPage)
@@ -54,11 +54,11 @@ async function getKeyWordEvent(searchDate) {
             console.log(displayedImg)
             imgElem.innerHTML = imgElemHTML
             console.log(currentPage)
-  
+
             previousBtn.disabled = currentPage === 1
             nextBtn.disabled = currentPage === lastPage
-      }
-  
+    }
+
     function showPreviousPage() {
         if (currentPage > 1) {
             currentPage--;

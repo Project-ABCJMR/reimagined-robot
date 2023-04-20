@@ -15,10 +15,10 @@ const imgElem = document.getElementById("imgElem")
 const imgTitleElem = document.getElementById("imgTitle")
 const previousBtn = document.getElementById("previous")
 const nextBtn = document.getElementById("next")
+const backBtn = document.getElementById("back")
+const artContainer = document.getElementById("pagination-container")
+const imgBtns = document.querySelector('imgBtn')
 
-
-// change selectionTextElem to the choice
-// function for getting text data
 
 // add event listener for search option choice
 dropDown.addEventListener("click", (event) => {
@@ -33,7 +33,7 @@ dropDown.addEventListener("click", (event) => {
 
 yearURLElem.addEventListener("click", event => {
   selectionTextElem.textContent = yearURLElem.textContent
-  console.log(event)
+  console.log("year")
   historicalEventsElem.style.display = "none"
 })
 
@@ -62,9 +62,11 @@ form.addEventListener('submit', event => {
   event.preventDefault();
   const searchDate = searchText.value;
   console.log(typeof searchDate)
-  // getEvent(searchDate)
+  displaySearchHistoryBtn(searchDate)
   console.log(!isNaN(searchDate))
   console.log(selectionTextElem.textContent.trim())
+   displaySearchHistoryBtn(searchDate)
+      
   
   // if, else-if, else
   if (selectionTextElem.textContent.trim() === "Year" && !isNaN(searchDate)) {
@@ -75,7 +77,17 @@ form.addEventListener('submit', event => {
 
   } else if (selectionTextElem.textContent.trim() === "Key Word" && searchDate.trim().length > 0 && isNaN(searchDate)) {
     getKeyWordEvent(searchDate)
-    saveSearch(searchDate, selectionTextElem)
+     form.style.display = "none";
+  dropDown.style.display = "none";
+  
+      backBtn.style.display = "inline";
+      previousBtn.style.display = "inline";
+      nextBtn.style.display = "inline";
+      imgElem.style.display = "block";
+      imgTitle.style.display = "inline";
+      scriptHTML.style.display = "flex";
+      artInfo.style.display = "inline";
+     //saveSearch(searchDate, selectionTextElem)
     
     // saveSearch()
     
@@ -95,7 +107,13 @@ form.addEventListener('submit', event => {
 //working code start
 
 function getEvent(searchDate) {
-    
+    scriptHTML.style.display = "flex"
+    dropDown.style.display = "none"
+    form.style.display = "none"
+    backBtn.style.display = "block"
+    artContainer.style.display = "block"
+    nextBtn.style.display = "none"
+    previousBtn.style.display = "none"
 
   //get 12 random numbers between 1 and 100
 function getRandomInt(min, max) {
@@ -137,6 +155,7 @@ console.log(searchDates);
 getYearData(searchDates, searchDate)
 }
 
+//fetch data from the first index of each year
 async function getYearData(searchDates, searchDate) {
     const myHeaders = new Headers();
     myHeaders.append("X-Api-Key", "cVYAGyxVsjKIeUf3l0dufoGDRN5uh06eJhAPjFdL");
@@ -180,17 +199,14 @@ function renderAllEvents(allEventsData) {
   
 }
 
-//display results from year search to HTML
 function getItToDom(eventHTML) {
-scriptHTML.innerHTML = eventHTML 
-}
-
-
-function seeHTML(scriptHTML) {
-  scriptHTML.scrollIntoView({ behavior: 'smooth' })
-}
-//end of working javascript
-
+  scriptHTML.innerHTML = eventHTML 
+  }
+  
+  //scroll page up if displayed data is not in view
+  function seeHTML(scriptHTML) {
+    scriptHTML.scrollIntoView({ behavior: 'smooth' })
+  }
 
 
 
