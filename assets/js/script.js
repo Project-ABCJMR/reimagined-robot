@@ -15,7 +15,7 @@ const imgElem = document.getElementById("imgElem")
 const imgTitleElem = document.getElementById("imgTitle")
 const previousBtn = document.getElementById("previous")
 const nextBtn = document.getElementById("next")
-
+const cardConElem = document.getElementById("cardCon")
 
 // change selectionTextElem to the choice
 // function for getting text data
@@ -65,7 +65,10 @@ form.addEventListener('submit', event => {
   // getEvent(searchDate)
   console.log(!isNaN(searchDate))
   console.log(selectionTextElem.textContent.trim())
-  
+  previousBtn.style.display = "inline"
+  nextBtn.style.display = "inline"
+  cardConElem.style.display = "inline"
+
   // if, else-if, else
   if (selectionTextElem.textContent.trim() === "Year" && !isNaN(searchDate)) {
 
@@ -190,8 +193,6 @@ function seeHTML(scriptHTML) {
   scriptHTML.scrollIntoView({ behavior: 'smooth' })
 }
 //end of working javascript
-
-
 
 
 

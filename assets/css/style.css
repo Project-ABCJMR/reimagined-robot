@@ -3,10 +3,11 @@
 
 *{
   /* background-color: #CFC8B4; */
-  color: #222B0F;
+  /* color: #222B0F; */
   /*this color is temporary*/
   margin: 0;
   padding: 0;
+
 
   
   
@@ -15,7 +16,9 @@
 
 body{
   width: 100%;
-  padding: 20px 20px;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: center;
 
 }
 
@@ -24,13 +27,18 @@ h1{
   /*text-shadow: 2px 2px 4px #000000;*/
   position: relative;
   margin-top: 10px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
   font-size: larger;
   max-width: 960px;
   
 }
 
-
+h2{
+  display: flex;
+  justify-content: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-left:2rem ;
+}
 
 .container {
   width: 100%;
@@ -80,7 +88,9 @@ h1{
   margin-top: 20px;
   padding: 5px 5px;
   background-color:rgb(253, 253, 253);
-  border-radius: 7px;   
+  border-radius: 7px;  
+  display: flex;
+  justify-content: center; 
 }
 
 #historicalEvents {
@@ -91,11 +101,12 @@ h1{
   text-align: center;
   font-size: 60px;
   margin-bottom: 20px;
-  color:#222B0F
+  color:#222B0F;
+  background-color: #Af732d;
 }
 
 .eventText {
-background-color:rgb(235, 248, 248) !important;
+background-color:rgb(254, 246, 219) !important;
 margin: 5px 5px;
 padding: 4px 6px;
 }
@@ -166,7 +177,7 @@ align-items: center;
 }
 
 input[type="textarea"] {
-min-width: 200px;
+min-width: 120px;
 padding: 8px;
 font-size: 1rem;
 border: 1px solid #ccc;
@@ -179,6 +190,8 @@ input[type="textarea"]:focus {
 border-color: #1b82db;
 box-shadow: 0 0 5px rgba(27, 130, 219, 0.5);
 }
+
+
 
 button[type="submit"] {
 padding: 8px 16px;
@@ -198,14 +211,14 @@ background-color: rgba(187, 176, 76, 0.8);
 
 .dropdown {
 position: relative;
-margin-right: 20px;
+
 }
 
 .dropdown-trigger button {
 display: flex;
+justify-content: center;
 align-items: center;
-justify-content: space-between;
-width: 100px;
+width: 100;
 padding: 8px;
 font-size: 1rem;
 border: 1px solid #ccc;
@@ -220,9 +233,9 @@ border-color: #d1bf57;
 background-color: rgba(187, 176, 76, 0.1)
 }
 
-.dropdown-trigger button .icon {
-margin-left: 5px;
-}
+/* .dropdown-trigger button .icon {
+
+} */
 
 .dropdown-menu {
 position: absolute;
@@ -263,22 +276,35 @@ display: flex;
 flex: 1 1 600px;
 margin-bottom: 20px;
 max-height: 600px;
+max-width: fit-content;
 box-shadow: 3px 3px 10px rgba(70, 64, 64, 0.6);
 }
 
 .imgBtn {
+display:none ;
 min-width: 70px;
 border: none;
 min-height: 30px;
-border-radius: 5px;
+border-radius: 39px;
 background-color:rgba(27, 130, 219, 0.1);
 margin-bottom: 40px;
 }
 
 #imgTitle {
+  padding-top: 20px ;
 padding-bottom: 20px;
+padding-left: 20px;
+padding-right: 20px;
 font-size: 45px;
-color:#333
+color:#333;
+align-items: center;
+display: flex;
+justify-content: center;
+
+}
+.artpicture{
+  align-items: center;
+  padding-top: 2rem;
 }
 
 /* Style the past searches box, center it on the screen, and hide it by default */
@@ -313,4 +339,135 @@ color:#333
   display: inline-block;
   margin: 5px;
   max-width: calc(50% - 10px);
+}
+
+.intro{
+background-color: yellow;
+
+}
+
+.lookup{
+  max-width: 250px;
+
+}
+
+.question{
+  display: flex;
+  justify-content: flex-start;
+
+}
+blue{
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  flex-direction: column;
+}
+
+all{
+  display: flex;
+  justify-content: center;
+}
+
+
+#himg #harvardImg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  text-align: center;
+  flex-wrap: wrap;
+}
+#cardCon{
+  display: none;
+}
+
+#himg{
+  background-color: #DDDCDA;
+  display: flex;
+  justify-content: center;
+  padding: auto;
+  max-width: 100vw;
+}
+.card-footer-item{
+  display: flex;
+  justify-content: center;
+}
+
+.box{
+
+ background-color: #324016;
+  
+}
+
+.tile.is-parent {
+  display: flex;
+  justify-content: center;
+}
+
+#selectionText{
+  border: 1px;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: white
+;
+}
+.tile.is-child{
+  margin: .75rem!important;
+  
+}
+.lookback{
+  background-color: rgba(187, 176, 76, 0.4);
+  color: #fff;
+  border: none;
+}
+.century{
+  background-color: rgba(187, 176, 76, 0.4)!important;
+  color: #fff;
+  border: none;
+}
+.keywordbutton{
+  background-color: rgba(187, 176, 76, 0.4);
+  color: #fff;
+  border: none;
+}
+.category{
+  background-color: rgba(187, 176, 76, 0.4)!important;
+  color: #fff !important;
+  border: none !important;
+  
+}
+.input, .select select, .textarea {
+  background-color: rgba(230, 230, 230, .9);
+}
+.curious{
+  background-color: #fbe5bd;
+}
+.artpicture{
+  display: flex;
+  justify-content: center;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+.is-success{
+  background-color: #Af732d;
+}
+cardstyle{
+  max-width: 80vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly
+}
+.artcard{
+  background-color: #Af732d;
+}
+factss{
+  display: flex;
+  justify-content: center;
+  
+}
+cardstyle{
+  display: flex;
+  justify-content: center;
+  
 }
