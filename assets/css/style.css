@@ -2,15 +2,25 @@
 
 * {
   /* background-color: #CFC8B4; */
-  color: #222b0f;
+
+  /* color: #222B0F; */
   /*this color is temporary*/
   margin: 0;
   padding: 0;
+
+
+  
+  
+
+
 }
 
 body {
   width: 100%;
-  padding: 20px 20px;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: center;
+
 }
 
 h1 {
@@ -18,10 +28,18 @@ h1 {
   /*text-shadow: 2px 2px 4px #000000;*/
   position: relative;
   margin-top: 10px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
   font-size: larger;
   max-width: 960px;
 }
+
+h2{
+  display: flex;
+  justify-content: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-left:2rem ;
+}
+
 .container {
   width: 100%;
   margin: auto;
@@ -60,118 +78,19 @@ h1 {
   padding: 0.7rem;
 }
 
-/* .navbar .nav-container a:hover{
-   
-} */
 
-.nav-container {
-  display: f;
-  position: relative;
-  height: 60px;
-}
 
-/* Making the hamburger */
-.nav-container .checkbox {
-  position: absolute;
-  display: block;
-  height: 32px;
-  width: 32px;
-  top: 20px;
-  left: 20px;
-  z-index: 5;
-  opacity: 0;
-  cursor: pointer;
-}
 
-.nav-container .hamburger-lines {
-  display: block;
-  height: 28px;
-  width: 34px;
-  position: absolute;
-  top: 17px;
-  left: 20px;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.nav-container .hamburger-lines .bar {
-  display: block;
-  height: 4px;
-  width: 100%;
-  border-radius: 10px;
-  background: #0e2431;
-}
-
-/* Adding transitions  */
-.nav-container .hamburger-lines .bar1 {
-  transform-origin: 0% 0%;
-  transition: transform 0.4s ease-in-out;
-}
-
-.nav-container .hamburger-lines .bar2 {
-  transition: transform 0.2s ease-in-out;
-}
-
-.nav-container .hamburger-lines .bar3 {
-  transform-origin: 0% 100%;
-  transition: transform 0.4s ease-in-out;
-}
-
-.navbar .menu-items {
-  padding-top: 120px;
-  /*box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);*/
-  height: 100vh;
-  width: 100%;
-  transform: translate(-150%);
-  display: flex;
-  flex-direction: column;
-  margin-left: 0;
-  padding-left: 50px;
-  transition: transform 0.5s ease-in-out;
-  text-align: center;
-}
-.navbar .menu-items li {
-  margin-bottom: 1.2rem;
-  font-size: 1.5rem;
-  font-weight: 500;
-}
-
-.logo {
-  position: absolute;
-  top: 5px;
-  right: 15px;
-  font-size: 1.2rem;
-  color: #0e2431;
-}
-
-/* Controlling the state of the icon */
-.nav-container input[type="checkbox"]:checked ~ .menu-items {
-  transform: translateX(0);
-}
-
-.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .bar1 {
-  transform: rotate(45deg);
-}
-
-.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .bar2 {
-  transform: scaleY(0);
-}
-
-.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .bar3 {
-  transform: rotate(-45deg);
-}
-
-.nav-container input[type="checkbox"]:checked ~ .logo {
-  display: none;
-}
 
 .eventText {
   margin-top: 20px;
   padding: 5px 5px;
-  background-color: rgb(253, 253, 253);
-  border-radius: 7px;
+
+  background-color:rgb(253, 253, 253);
+  border-radius: 7px;  
+  display: flex;
+  justify-content: center; 
+
 }
 
 #historicalEvents {
@@ -182,13 +101,16 @@ h1 {
   text-align: center;
   font-size: 60px;
   margin-bottom: 20px;
-  color: #222b0f;
+
+  color:#222B0F;
+  background-color: #Af732d;
 }
 
 .eventText {
-  background-color: rgb(235, 248, 248) !important;
-  margin: 5px 5px;
-  padding: 4px 6px;
+background-color:rgb(254, 246, 219) !important;
+margin: 5px 5px;
+padding: 4px 6px;
+
 }
 
 #mainContent {
@@ -211,13 +133,20 @@ h1 {
   max-height: 300px;
 }
 
-.modal-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: rgb(255, 255, 255);
-}
+
+.modal-content{
+position: absolute;
+justify-content: center;
+max-width: 600px;
+padding-left: 10%;
+padding-right: 10%;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+color: rgb(255, 255, 255);
+text-align: center;
+
+
 
 .columns {
   display: flex;
@@ -249,19 +178,22 @@ form {
 }
 
 input[type="textarea"] {
-  min-width: 200px;
-  padding: 8px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  outline: none;
-  transition: all 0.3s;
-}
+
+min-width: 120px;
+padding: 8px;
+font-size: 1rem;
+border: 1px solid #ccc;
+border-radius: 3px;
+outline: none;
+transition: all 0.3s;
+
 
 input[type="textarea"]:focus {
   border-color: #1b82db;
   box-shadow: 0 0 5px rgba(27, 130, 219, 0.5);
 }
+
+
 
 button[type="submit"] {
   padding: 8px 16px;
@@ -280,31 +212,29 @@ button[type="submit"]:hover {
 }
 
 .dropdown {
-  position: relative;
-  margin-right: 20px;
+
+position: relative;
+
 }
 
 .dropdown-trigger button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 8px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  background-color: #fff;
-  cursor: pointer;
-  transition: all 0.3s;
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100;
+padding: 8px;
+font-size: 1rem;
+border: 1px solid #ccc;
+border-radius: 3px;
+background-color: #fff;
+cursor: pointer;
+transition: all 0.3s;
+
 }
 
 .dropdown-trigger button:hover {
   border-color: #d1bf57;
   background-color: rgba(187, 176, 76, 0.1);
-}
-
-.dropdown-trigger button .icon {
-  margin-left: 5px;
 }
 
 .dropdown-menu {
@@ -341,26 +271,41 @@ button[type="submit"]:hover {
 }
 
 #imgElem img {
-  display: flex;
-  flex: 1 1 600px;
-  margin-bottom: 20px;
-  max-height: 600px;
-  box-shadow: 3px 3px 10px rgba(70, 64, 64, 0.6);
+
+display: flex;
+flex: 1 1 600px;
+margin-bottom: 20px;
+max-height: 600px;
+max-width: fit-content;
+box-shadow: 3px 3px 10px rgba(70, 64, 64, 0.6);
 }
 
 .imgBtn {
-  min-width: 70px;
-  border: none;
-  min-height: 30px;
-  border-radius: 5px;
-  background-color: rgba(27, 130, 219, 0.1);
-  margin-bottom: 40px;
+display:none ;
+min-width: 70px;
+border: none;
+min-height: 30px;
+border-radius: 39px;
+background-color:rgba(27, 130, 219, 0.1);
+margin-bottom: 40px;
 }
 
 #imgTitle {
-  padding-bottom: 20px;
-  font-size: 45px;
-  color: #333;
+  padding-top: 20px ;
+padding-bottom: 20px;
+padding-left: 20px;
+padding-right: 20px;
+font-size: 45px;
+color:#333;
+align-items: center;
+display: flex;
+justify-content: center;
+
+}
+.artpicture{
+  align-items: center;
+  padding-top: 2rem;
+
 }
 
 /* Style the past searches box, center it on the screen, and hide it by default */
@@ -395,4 +340,135 @@ button[type="submit"]:hover {
   display: inline-block;
   margin: 5px;
   max-width: calc(50% - 10px);
+}
+
+.intro{
+background-color: yellow;
+
+}
+
+.lookup{
+  max-width: 250px;
+
+}
+
+.question{
+  display: flex;
+  justify-content: flex-start;
+
+}
+blue{
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  flex-direction: column;
+}
+
+all{
+  display: flex;
+  justify-content: center;
+}
+
+
+#himg #harvardImg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  text-align: center;
+  flex-wrap: wrap;
+}
+#cardCon{
+  display: none;
+}
+
+#himg{
+  background-color: #DDDCDA;
+  display: flex;
+  justify-content: center;
+  padding: auto;
+  max-width: 100vw;
+}
+.card-footer-item{
+  display: flex;
+  justify-content: center;
+}
+
+.box{
+
+ background-color: #324016;
+  
+}
+
+.tile.is-parent {
+  display: flex;
+  justify-content: center;
+}
+
+#selectionText{
+  border: 1px;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: white
+;
+}
+.tile.is-child{
+  margin: .75rem!important;
+  
+}
+.lookback{
+  background-color: rgba(187, 176, 76, 0.4);
+  color: #fff;
+  border: none;
+}
+.century{
+  background-color: rgba(187, 176, 76, 0.4)!important;
+  color: #fff;
+  border: none;
+}
+.keywordbutton{
+  background-color: rgba(187, 176, 76, 0.4);
+  color: #fff;
+  border: none;
+}
+.category{
+  background-color: rgba(187, 176, 76, 0.4)!important;
+  color: #fff !important;
+  border: none !important;
+  
+}
+.input, .select select, .textarea {
+  background-color: rgba(230, 230, 230, .9);
+}
+.curious{
+  background-color: #fbe5bd;
+}
+.artpicture{
+  display: flex;
+  justify-content: center;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+.is-success{
+  background-color: #Af732d;
+}
+cardstyle{
+  max-width: 80vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly
+}
+.artcard{
+  background-color: #Af732d;
+}
+factss{
+  display: flex;
+  justify-content: center;
+  
+}
+cardstyle{
+  display: flex;
+  justify-content: center;
+  
 }

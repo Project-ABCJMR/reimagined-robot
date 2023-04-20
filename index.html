@@ -4,167 +4,173 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>TimeTravelr</title>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="icon" href="assets/images/Art&HistoricFavicon.png" type="image/png">
+    <link rel="icon" href="assets/images/Favicon.png" type="image/png">
+    
     <script defer src="./assets/js/keyWordSearchScript.js"></script>
     <script defer src="./assets/js/script.js"></script>
     <script defer src="./assets/js/pastSearches.js"></script>
 </head>
 <body>
-    <!-- this is the new navbar and it will be a burger in mobile -b-->
-    <section class="hero  is-medium">
-        <div class="hero-head">
-            <nav class="navbar" role="navigation" aria-label="main navigation">
-                <div class="container">
-                    <div class="navbar-brand">
-                        <a class="navbar-item" href="./index.html">
-                            <img src="./assets/images/Favicon.png" width="auto" height="28">
-                        </a>
-                    
-                        <a role="button" class="navbar-burger " aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                            <span aria-hidden="true"></span>
-                            <span aria-hidden="true"></span>
-                            <span aria-hidden="true"></span>
-                        </a>
+   
+        <div class="tile container"> 
+            <div class="">
+                <!--searchbar-->
+                <div class="  ">
+                    <div class="tile   ">
+                        <div class=" ">
+                            <article class=" card curious ">
+                                <figure class="image">
+                                    <img src="./assets/images/Untitled_Artwork 6.png" max-width="">
+                                </figure>
+                            </article>
+                        </div>
                     </div>
-                
-                    <aside id="navbarBasicExample" class="navbar-menu">
-                        <div class="navbar-start">
-                            <a class="navbar-item" href="index.html">
-                            TimeTravelr
-                            </a>
 
-                            
-                            
-                            <div class="navbar-item has-dropdown is-hoverable">
-                                <a class="navbar-link">
-                                    Where to Next?
-                                </a>
+                        <div class="tile is-ancestor ">   
+
+
                                 
-                                <div class="navbar-dropdown">
-                                    <div class="level-item">
-                                        <div class="field has-addons">
-                                          <p class="control">
-                                            <input class="input" type="text" placeholder="Find a post">
-                                          </p>
-                                          <p class="control">
-                                            <button class="button">
-                                              
-                                            </button>
-                                          </p>
+                                <div class="tile is-parent   ">
+                                    <article class="tile is-child box " >
+                                        
+                                        <div id="dropDown" class=" dropdown is-hoverable ">
+                                            <div class="dropdown-trigger">
+                                                <!-- <button class="button"  id="dropDownButton" aria-haspopup="true" aria-controls="dropdown-menu2">
+                                                    <span id="selectionText">Category</span>
+                                                    <span class="icon is-small">
+                                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                                    </span>
+                                                </button> -->
+                                                <button class="button category is-rounded" id="dropDownButton" aria-haspopup="true" aria-controls="dropdown-menu2">
+                                                    <span id="selectionText">
+                                                        Category
+                                                    </span>
+                                                </button>
+                               
+
+
+                                            </div>
+                                            <div class="dropdown-menu " id="dropdown-menu2" role="menu">
+                                                <div class="dropdown-content">
+                                                    <div class="dropdown-item">
+                                                        <button class="button century input is-rounded " id="yearURL" aria-haspopup="true" aria-controls="dropdown-menu3">
+                                                            <span>Century</span>
+                                                            <span class="icon is-small">
+                                                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                                            </span>
+                                                        </button>
+                                                        <hr class="dropdown-divider">
+                                                        <button class="button keywordbutton  is-rounded" id="keyWordURL" aria-haspopup="true" aria-controls="dropdown-menu3">
+                                                            <span>Key Word</span>
+                                                            <!-- <span class="icon is-small">
+                                                                <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                                            </span> -->
+                                                        </button>
+                                                        <hr class="dropdown-divider">
+                                                        <ul>
+                                                            <li><br> select "Year" or "Key Word" before searching.</br></li>
+                                                            <li><br>For Key Word, enter a key word or phrase associated with your desired search.</br></li>
+                                                            
+                                                            <li><br>For Year, enter a year for the century you would like to search</br></li>
+                                                        </ul>
+                                                            <!-- <p>
+                                                                Please select "Year" or "Key Word" before searching.
+                                                            </p>
+                                                            <p>
+                                                                For Key Word, enter a key word or phrase associated with your desired search.
+                                                                
+                                                            </p>
+                                                            <p>
+                                                                For Year, enter a year for the century you would like to search
+                                                            </p> -->
+                                                            
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                      </div>
-                                    <a class="navbar-item" href="2000fetch.html">
-                                    2000
-                                    </a>
-                                    <a class="navbar-item" href="1900fetch.html">
-                                    1900
-                                    </a>
-                                    <a class="navbar-item" href="1800fetch.html">
-                                    1800
-                                    </a>
-                                    <a class="navbar-item" href="1700fetch.html">
-                                        1700
-                                    </a>
-                                    <a class="navbar-item" href="1600fetch.html">
-                                        1600
-                                    </a>
-                             </div>
-                        </div>
-                
-                        <div class="navbar-end">
-                        </div>
-                    </aside>
-            </nav>
-        </div>
-        
-        
-        <!-- <div>
-        <h2>Search a Specific Date</h2>
-        <form id="search-form">
-            <input type="textarea" id="searchText" placeholder="Enter a date">
-            <button type="submit">Search</button>
-        </form>
-    </div>   -->
-
-    </nav>
-    <!--searchbar-->
-    <div class="columns container">
-        <div class="column is-2">
-                <h3>Input your search here</h3>
-                <form id="search-form">
-                    <input type="textarea" id="searchText" placeholder="Enter a date">
-                <button type="submit">Search</button>
-                </form>
-
-                <!-- Container holding the previous searches button and a hidden box with past searches content -->
-                <div class="container">
-                    <button id="showPastSearchesBtn" class="button">Previous Searches</button>
-                    <div id="pastSearchesBox" class="hidden">
-                      <div id="pastSearchesContent" class="content"></div>
-                    </div>
-                  </div>
-                  
-                  
-
-         
-
-                <!-- adding drop down selection for keyword or year selection-->
-                <div id="dropDown" class="dropdown is-hoverable column is-2">
-                    <div class="dropdown-trigger">
-                        <button class="button" id="dropDownButton" aria-haspopup="true" aria-controls="dropdown-menu2">
-                            <span id="selectionText">Select Search Type</span>
-                            <span class="icon is-small">
-                            <i class="fas fa-angle-down" aria-hidden="true"></i>
-                            </span>
-                        </button>
-                    </div>
-                    <div class="dropdown-menu" id="dropdown-menu2" role="menu">
-                        <div class="dropdown-content">
-                            <div class="dropdown-item">
-                                <button class="button" id="yearURL" aria-haspopup="true" aria-controls="dropdown-menu3">
-                                    <span>Year</span>
-                                    <span class="icon is-small">
-                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                    </span>
-                                </button>
-                            </div>
-                            <hr class="dropdown-divider">
-                                <button class="button" id="keyWordURL" aria-haspopup="true" aria-controls="dropdown-menu3">
-                                    <span>Key Word</span>
-                                    <span class="icon is-small">
-                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                    </span>
-                                </button>
-                            <hr class="dropdown-divider">
-                                <p>Please select "Year" or "Key Word" before searching. For Key Word, enter a key word or phrase associated with your desired search. For Year, enter a year for the century you would like to search</p>
-                            </div>
-                        </div>
-                    </div>
+                                    </article>
+                                </div>
+                                <div class="tile is-parent">
+                                    <article class="tile is-child box ">
+                                        <form id="search-form  ">
+                                            <input type="textarea" id="searchText" class="input
+                                             is-rounded" placeholder="Ask Me Here">
+                                            <!-- <input type="textarea" id=" searchText" class=" input is-rounded ds-input control " placeholder= "Ask Me Here"  > -->
+                                            <button class=" input is-rounded" type="submit">Search</button>
+                                           
+                                        </form>
+                                       
+                                    </article>
+                                </div> 
+                                <div class="tile is-parent">
+                                        <!-- adding drop down selection for keyword or year selection-->
+                                    <article class=" container tile is-child box">
+                                            <!-- Container holding the previous searches button and a hidden box with past searches content -->
+                                            
+                                                <button id="showPastSearchesBtn" class="button previous   lookback is-rounded">Previous Searches</button>
+                                                <div id="pastSearchesBox" class="hidden">
+                                                <div id="pastSearchesContent" class="content"></div>
+                                                </div>
+                                            
+                                    </article>
+                                </div>
+                        
                 </div> 
-            </div> 
-            <!--div for content rendering-->              
-    <div class="mainContent"> 
-        <div id="h1Div">
-            <h1 id="historicalEvents" style="display: none">Historical Events</h1>   
-        </div> 
-        <div id="harvardImgs" style="display: flex; align-items: center; justify-content: center; min-width: 100vw; flex-direction: column;">
-            <h2 id="imgTitle"></h2>
-            <div id="imgElem"></div>
-            <div id="pagination-container">
-                <button class="imgBtn" id="previous">Previous</button>
-                <button class="imgBtn" id="next">Next</button>
-        </div>   
-        <div  id="renderHTML" style="max-width: 100vw; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-evenly"></div>
-        <!-- <p>this is the test</p> -->
-    </div>
+            
+                    <div class="tile  container is-parent  is-success " id="himg cardCon">
+                            <!--div for content rendering-->  
+                        <div class="mainContent tile is-child "> 
+                            <div id="h1Div">
+                                <h1 id="historicalEvents" ></h1>   
+                            </div> 
+                            <div class=" artcard" id="harvardImgs">
+                                <div class="card-content" id="cardCon">
+                                    <h2 id="imgTitle" class="card arttitle"></h2>
+                                    <div id="imgElem" class=" card artpicture"></div>
+                                    <div id="pagination-container " class=" pagination " role="navigation">
+                                        <button class="imgBtn pagination is-rounded pagination-next" id="next">Next</button>
+                                        <button class="imgBtn pagination is-rounded pagination-previous backbutton" id="previous">Previous</button>
+                                        
+                                    </div>  
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="tile container is-parent coolfacts">
+                        <div class="tile is-child factss">
+                            <div  id="renderHTML" class="card cardstyle" style="max-width: 80vw; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-evenly">
+                            
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>  
+
+
+
+
+
+
+
+
+
+        
+       
+
     <!--modal for invalid search input-->
     <div class="modal" id="invalidYear">
         <div class="modal-background"></div>
         <div class="modal-content">
-            <p class="modal-card-title has-text-grey-light">Please enter a valid year, using the numerical keys.
+            <p class="modal-card-title has-text-grey-light">
+                Please enter a valid year, using the numerical keys.
+            </p>
+            <p> </p>
+            <p class="modal-card-title has-text-grey-light">
                 If you would like to search for a century bc then use the "-" key before the year ie -300 for 300bc.
             </p>
         </div>
@@ -172,9 +178,6 @@
       </div>
 
       
- 
 
-
-    
-</body>
+     
 </html>
