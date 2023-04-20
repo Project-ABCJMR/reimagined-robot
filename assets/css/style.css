@@ -1,8 +1,8 @@
 /*hello yall this is the style sheet <3 */
 
-
-*{
+* {
   /* background-color: #CFC8B4; */
+
   /* color: #222B0F; */
   /*this color is temporary*/
   margin: 0;
@@ -12,9 +12,10 @@
   
   
 
+
 }
 
-body{
+body {
   width: 100%;
   padding: 15px 20px;
   display: flex;
@@ -22,15 +23,14 @@ body{
 
 }
 
-h1{
-  color:white;
+h1 {
+  color: white;
   /*text-shadow: 2px 2px 4px #000000;*/
   position: relative;
   margin-top: 10px;
   
   font-size: larger;
   max-width: 960px;
-  
 }
 
 h2{
@@ -49,13 +49,11 @@ h2{
   width: 100%;
 }
 
-
-.favicon{
-  height: fit-content; 
+.favicon {
+  height: fit-content;
   position: relative;
   left: 60px;
   top: 5px;
-  
 }
 .nav-container {
   display: flex;
@@ -78,8 +76,8 @@ h2{
   font-weight: bolder;
   font-size: 1.2rem;
   padding: 0.7rem;
-   
 }
+
 
 
 
@@ -87,10 +85,12 @@ h2{
 .eventText {
   margin-top: 20px;
   padding: 5px 5px;
+
   background-color:rgb(253, 253, 253);
   border-radius: 7px;  
   display: flex;
   justify-content: center; 
+
 }
 
 #historicalEvents {
@@ -101,6 +101,7 @@ h2{
   text-align: center;
   font-size: 60px;
   margin-bottom: 20px;
+
   color:#222B0F;
   background-color: #Af732d;
 }
@@ -109,29 +110,29 @@ h2{
 background-color:rgb(254, 246, 219) !important;
 margin: 5px 5px;
 padding: 4px 6px;
+
 }
 
-#mainContent{
-display: flex;
-flex: 1 1 100vw;
+#mainContent {
+  display: flex;
+  flex: 1 1 100vw;
 }
 
 #h1Div h1 {
-max-width: 2000px;
+  max-width: 2000px;
 }
-
 
 .modal {
-position: absolute;
-display: none;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-border-radius: 30px;
-flex: 1 1 400px;
-max-height: 300px;
-
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 30px;
+  flex: 1 1 400px;
+  max-height: 300px;
 }
+
 
 .modal-content{
 position: absolute;
@@ -144,39 +145,40 @@ left: 50%;
 transform: translate(-50%, -50%);
 color: rgb(255, 255, 255);
 text-align: center;
-}
+
 
 
 .columns {
-display: flex;
-flex-wrap: nowrap;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .column {
-flex: 1;
-padding: 0 10px;
+  flex: 1;
+  padding: 0 10px;
 }
 
 h2 {
-font-size: 1.2rem;
-color: #333;
-margin-bottom: 8px;
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 8px;
 }
 
 h3 {
-display: row;
-min-width: 200px;
+  display: row;
+  min-width: 200px;
 }
 form {
-display: flex;
-justify-content: space-between;
-align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 input[type="textarea"] {
+
 min-width: 120px;
 padding: 8px;
 font-size: 1rem;
@@ -184,32 +186,33 @@ border: 1px solid #ccc;
 border-radius: 3px;
 outline: none;
 transition: all 0.3s;
-}
+
 
 input[type="textarea"]:focus {
-border-color: #1b82db;
-box-shadow: 0 0 5px rgba(27, 130, 219, 0.5);
+  border-color: #1b82db;
+  box-shadow: 0 0 5px rgba(27, 130, 219, 0.5);
 }
 
 
 
 button[type="submit"] {
-padding: 8px 16px;
-background-color: rgba(187, 176, 76, 0.4);
-color: #fff;
-font-size: 1rem;
-border: none;
-border-radius: 3px;
-cursor: pointer;
-transition: background-color 0.3s;
-margin-left: 10px;
+  padding: 8px 16px;
+  background-color: rgba(187, 176, 76, 0.4);
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 10px;
 }
 
 button[type="submit"]:hover {
-background-color: rgba(187, 176, 76, 0.8);
+  background-color: rgba(187, 176, 76, 0.8);
 }
 
 .dropdown {
+
 position: relative;
 
 }
@@ -226,52 +229,49 @@ border-radius: 3px;
 background-color: #fff;
 cursor: pointer;
 transition: all 0.3s;
+
 }
 
 .dropdown-trigger button:hover {
-border-color: #d1bf57;
-background-color: rgba(187, 176, 76, 0.1)
+  border-color: #d1bf57;
+  background-color: rgba(187, 176, 76, 0.1);
 }
 
-/* .dropdown-trigger button .icon {
-
-} */
-
 .dropdown-menu {
-position: absolute;
-top: 100%;
-left: 0;
-min-width: 100%;
-background-color: #fff;
-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-border-radius: 3px;
-padding: 8px 8px;
-display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  padding: 8px 8px;
+  display: none;
 }
 
 .dropdown.is-hoverable:hover .dropdown-menu {
-display: block;
-
+  display: block;
 }
 
 .dropdown-content {
-width: 100%;
-border: 0px;
+  width: 100%;
+  border: 0px;
 }
 
 .dropdown-item {
-padding: 8px 16px;
-font-size: 0.9rem;
-color: #333;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  color: #333;
 }
 
 .dropdown-divider {
-height: 1px;
-background-color: #ddd;
-margin: 4px 0;
+  height: 1px;
+  background-color: #ddd;
+  margin: 4px 0;
 }
 
 #imgElem img {
+
 display: flex;
 flex: 1 1 600px;
 margin-bottom: 20px;
@@ -305,6 +305,7 @@ justify-content: center;
 .artpicture{
   align-items: center;
   padding-top: 2rem;
+
 }
 
 /* Style the past searches box, center it on the screen, and hide it by default */
@@ -319,7 +320,7 @@ justify-content: center;
   max-height: 300px;
   width: 50%;
   overflow-y: scroll;
-  column-count: 2;
+  column-count: 1;
   display: none;
 }
 
