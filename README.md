@@ -6,25 +6,33 @@ Greetings!  We are a team of new web developers, and we are pleased to introduce
 
 ## 🪄 User Story
 **GIVEN** I am interested in learning about historical events, art, and relics of a specific century
+
 **WHEN** I enter the century or keyword in the input field and click the "Search" button
+
 **THEN** I am presented with a list of relevant historical events, art, and relics
 
 **WHEN** I choose to search by century
+
 **THEN** I input the century in the format of "17th century", "1700", or "-300" for BC centuries (leading with a "-")
 
 **WHEN** I choose to search by keyword
+
 **THEN** I input the keyword related to the historical events, art, or relics I am interested in
 
 **WHEN** I want to view my past searches
+
 **THEN** I click the "Show Past Searches" button and a box with my previous searches appears
 
 **WHEN** I want to explore an event, artwork, or relic in more detail
+
 **THEN** I click on the item and a modal window with more information is displayed
 
 **WHEN** I want to hide the past searches box
+
 **THEN** I click anywhere outside of it and the box is hidden
 
 **WHEN** I have finished exploring the results
+
 **THEN** I can perform a new search or revisit my past searches to explore more events, art, and relics related to a different century or keyword
 
 ## 🌐 How to Operate TimeTravelr
