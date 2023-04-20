@@ -374,3 +374,37 @@ padding-bottom: 20px;
 font-size: 45px;
 color:#333
 }
+
+/* Style the past searches box, center it on the screen, and hide it by default */
+#pastSearchesBox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 4px;
+  padding: 20px;
+  max-height: 300px;
+  width: 50%;
+  overflow-y: scroll;
+  column-count: 2;
+  display: none;
+}
+
+/* Utility class to hide elements */
+.hidden {
+  display: none;
+}
+
+/* Make the scrollbar invisible */
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+/* Style the buttons inside the past searches box */
+.past-search-btn {
+  display: inline-block;
+  margin: 5px;
+  max-width: calc(50% - 10px);
+}
