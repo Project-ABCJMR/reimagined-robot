@@ -10,6 +10,7 @@
     <link rel="icon" href="assets/images/Favicon.png" type="image/png">
     <script defer src="./assets/js/keyWordSearchScript.js"></script>
     <script defer src="./assets/js/script.js"></script>
+    <script defer src="./assets/js/pastSearches.js"></script>
 </head>
 <body>
     <!-- this is the new navbar and it will be a burger in mobile -b-->
@@ -90,110 +91,55 @@
 
     </nav>
     <!--searchbar-->
-    <div class="columns container tile is-ancestor ">
-        <!-- //this tag below holds the whole search bar // -->
-        <div class="tile is-4 is-vertical is-parent ">
-            <div class="tile is-vertical is-child  ">
-                
-                    <div class="tile is-child box">
-                        <form id="search-form">
-                            <input type="textarea" id="searchText" placeholder="Ask Me">
-                             <button type="submit">Search</button>
-                        </form>
+    <div class="columns container">
+        <div class="column is-2">
+                <h3>Input your search here</h3>
+                <form id="search-form">
+                    <input type="textarea" id="searchText" placeholder="Enter a date">
+                <button type="submit">Search</button>
+                </form>
+
+                <!-- Container holding the previous searches button and a hidden box with past searches content -->
+                <div class="container">
+                    <button id="showPastSearchesBtn" class="button">Previous Searches</button>
+                    <div id="pastSearchesBox" class="hidden">
+                      <div id="pastSearchesContent" class="content"></div>
                     </div>
-                    <div class="tile is-child box">
-                        <!-- //adding drop down selection for keyword or year selection// -->
-                        <div id="dropDown" class="dropdown is-hoverable column is-2">
-                            <div class="dropdown-trigger">
-                                <button class="button" id="dropDownButton" aria-haspopup="true" aria-controls="dropdown-menu2">
-                                    <span id="selectionText">Category</span>
+                  </div>
+                  
+                  
+
+         
+
+                <!-- adding drop down selection for keyword or year selection-->
+                <div id="dropDown" class="dropdown is-hoverable column is-2">
+                    <div class="dropdown-trigger">
+                        <button class="button" id="dropDownButton" aria-haspopup="true" aria-controls="dropdown-menu2">
+                            <span id="selectionText">Select Search Type</span>
+                            <span class="icon is-small">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+                        <div class="dropdown-content">
+                            <div class="dropdown-item">
+                                <button class="button" id="yearURL" aria-haspopup="true" aria-controls="dropdown-menu3">
+                                    <span>Year</span>
                                     <span class="icon is-small">
                                     <i class="fas fa-angle-down" aria-hidden="true"></i>
                                     </span>
                                 </button>
                             </div>
-                            <div class="dropdown-menu" id="dropdown-menu2" role="menu">
-                                <div class="dropdown-content">
-                                    <div class="dropdown-item">
-                                        <button class="button" id="yearURL" aria-haspopup="true" aria-controls="dropdown-menu3">
-                                            <span>Year</span>
-                                            <span class="icon is-small">
-                                            <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <hr class="dropdown-divider">
-                                        <button class="button" id="keyWordURL" aria-haspopup="true" aria-controls="dropdown-menu3">
-                                            <span>Key Word</span>
-                                            <span class="icon is-small">
-                                            <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                            </span>
-                                        </button>
-                                    <hr class="dropdown-divider">
-                                        <p>Please select "Year" or "Key Word" before searching. For Key Word, enter a key word or phrase associated with your desired search. For Year, enter a year for the century you would like to search</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        
-                    </div>
-                
-                </div>    
-
-                
-            </div> 
-            <div class="tile is-parent ">
-                <div class="tile is-child box">
-                    <img src="./assets/images/Untitled_Artwork 6.png" >
-                </div>
-            </div>
-        </div>
-
-
-
-
-        
-        <!-- <div class="tile is-ancestor">
-            <div class="tile is-vertical is-12">
-              <div class="tile">
-                <div class="tile is-parent is-vertical">
-                  <article class="tile is-child box">
-                      <form id="search-form">
-                          <input type="textarea" id="searchText" placeholder="Ask Me">
-                           <button type="submit">Search</button>
-                      </form>
-                    
-
-                  </article>
-                  <article class="tile is-child box">
-                    <div id="dropDown" class="dropdown is-hoverable column is-2">
-                        <div class="dropdown-trigger">
-                            <button class="button" id="dropDownButton" aria-haspopup="true" aria-controls="dropdown-menu2">
-                                <span id="selectionText">Category</span>
-                                <span class="icon is-small">
-                                <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                </span>
-                            </button>
-                        </div>
-                        <div class="dropdown-menu" id="dropdown-menu2" role="menu">
-                            <div class="dropdown-content">
-                                <div class="dropdown-item">
-                                    <button class="button" id="yearURL" aria-haspopup="true" aria-controls="dropdown-menu3">
-                                        <span>Year</span>
-                                        <span class="icon is-small">
-                                        <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                        </span>
-                                    </button>
-                                </div>
-                                <hr class="dropdown-divider">
-                                    <button class="button" id="keyWordURL" aria-haspopup="true" aria-controls="dropdown-menu3">
-                                        <span>Key Word</span>
-                                        <span class="icon is-small">
-                                        <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                        </span>
-                                    </button>
-                                <hr class="dropdown-divider">
-                                    <p>Please select "Year" or "Key Word" before searching. For Key Word, enter a key word or phrase associated with your desired search. For Year, enter a year for the century you would like to search</p>
+                            <hr class="dropdown-divider">
+                                <button class="button" id="keyWordURL" aria-haspopup="true" aria-controls="dropdown-menu3">
+                                    <span>Key Word</span>
+                                    <span class="icon is-small">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                    </span>
+                                </button>
+                            <hr class="dropdown-divider">
+                                <p>Please select "Year" or "Key Word" before searching. For Key Word, enter a key word or phrase associated with your desired search. For Year, enter a year for the century you would like to search</p>
                             </div>
                         </div>
                     </div>
@@ -260,7 +206,7 @@
       </div>
 
       
- <!-- <button class="btn"> Oogabooga </button> -->
+ 
 
 
     

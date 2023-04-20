@@ -123,6 +123,7 @@ async function getKeyWordEvent(searchDate) {
     }
   
   }
-  
+    // Make the getKeyWordEvent function accessible from other JS files
+    window.getKeyWordEvent = getKeyWordEvent;
   
   
