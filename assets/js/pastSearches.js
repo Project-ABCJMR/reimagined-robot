@@ -6,8 +6,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const showPastSearchesBtn = document.getElementById("showPastSearchesBtn");
   const pastSearchesBox = document.getElementById("pastSearchesBox");
   const pastSearchesContent = document.getElementById("pastSearchesContent");
-  const form = document.querySelector('form')
   const searchText = document.getElementById('searchText');
+
+  console.log('Elements retrieved:', {
+    pastSearchesList,
+    searchForm,
+    showPastSearchesBtn,
+    pastSearchesBox,
+    pastSearchesContent,
+    searchText,
+  });
 
   // Load past searches from local storage and display them as buttons
   function loadPastSearches() {
@@ -19,6 +27,21 @@ document.addEventListener("DOMContentLoaded", () => {
       .map((search) => `<button class="button past-search-btn">${search}</button>`)
       .join("");
   }
+
+function savePastSearch(searchDate) {
+  // Get past searches or default to an empty array
+  const pastSearches = JSON.parse(localStorage.getItem("pastSearches")) || [];
+  
+  // Add the new search date to the past searches array
+  pastSearches.push(searchDate);
+  
+  // Save the updated past searches array to local storage
+  localStorage.setItem("pastSearches", JSON.stringify(pastSearches));
+  
+  // Update the past searches displayed on the page
+  loadPastSearches();
+}
+
   
   // Handle clicking on a past search button
   function handlePastSearchClick(event) {
@@ -35,16 +58,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-
   // Listen for the search form submission
-  form.addEventListener("submit", (event) => {
+  searchForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    console.log("getKeyword being called from past searches")
+    console.log("getKeyword being called from past searches");
     // Get the search date and save it to local storage
     const searchDate = event.target.elements.searchText.value;
     savePastSearch(searchDate);
     // Perform the search
-    
+    getKeyWordEvent(searchDate);
   });
 
   // Listen for clicks on past search buttons
@@ -55,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Show the past searches box when the button is clicked
   showPastSearchesBtn.addEventListener("click", () => {
     pastSearchesBox.style.display = "block";
-    console.log( "previous searches btn clicked")
+    console.log("previous searches btn clicked");
   });
 
   // Hide the past searches box when clicking outside of it
