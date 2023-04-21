@@ -35,28 +35,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Save a new search to local storage
-  function savePastSearch(searchDate) {
-    // Get past searches or default to an empty array
-    const pastSearches = JSON.parse(localStorage.getItem("pastSearches")) || [];
-    // Only save the search if it's not already in the list
-    if (!pastSearches.includes(searchDate)) {
-      pastSearches.push(searchDate);
-      localStorage.setItem("pastSearches", JSON.stringify(pastSearches));
-      // Update the past searches list
-      loadPastSearches();
-    }
-  }
 
   // Listen for the search form submission
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-
+    console.log("getKeyword being called from past searches")
     // Get the search date and save it to local storage
     const searchDate = event.target.elements.searchText.value;
     savePastSearch(searchDate);
     // Perform the search
-    getKeyWordEvent(searchDate);
+    
   });
 
   // Listen for clicks on past search buttons
@@ -80,3 +68,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+window.getKeyWordEvent = getKeyWordEvent;

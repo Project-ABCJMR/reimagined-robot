@@ -20,9 +20,8 @@ const backBtn = document.getElementById("back")
 const artContainer = document.getElementById("pagination-container")
 const imgBtns = document.querySelector('imgBtn')
 const cardConElem = document.getElementById("cardCon")
+const imgContainer = document.getElementById("imgContainer")
 
-// change selectionTextElem to the choice
-// function for getting text data
 
 // add event listener for search option choice
 dropDown.addEventListener("click", (event) => {
@@ -39,13 +38,12 @@ yearURLElem.addEventListener("click", event => {
   selectionTextElem.textContent = yearURLElem.textContent
   console.log(event)
   historicalEventsElem.style.display = "none";
-  imgElem.style.display = "none";
-  imgTitleElem.style.display = "none";
+  
 })
 
 keyWordURLElem.addEventListener("click", event => {
   selectionTextElem.textContent = keyWordURLElem.textContent
-  console.log(selectionTextElem.textContent)
+  console.log(selectionTextElem.textContent, event)
   historicalEventsElem.style.display = "none"
   imgElem.style.display = "column";
   imgTitleElem.style.display = "column";
@@ -63,7 +61,28 @@ function saveSearch(searchDate, selectionTextElem, eventHTML) {
   }
   localStorage.setItem('savedSearches', JSON.stringify(savedSearches))
 }
+//past searches save
+// function loadPastSearches() {
+//   // Get past searches or default to an empty array
+//   const pastSearches = JSON.parse(localStorage.getItem("pastSearches")) || [];
+//   // Create past search buttons and add them to the past searches content
+  
+//   pastSearchesContent.innerHTML = pastSearches
+//     .map((search) => `<button class="button past-search-btn">${search}</button>`)
+//     .join("");
+// }
 
+function savePastSearch(searchDate) {
+  // Get past searches or default to an empty array
+  const pastSearches = JSON.parse(localStorage.getItem("pastSearches")) || [];
+  // Only save the search if it's not already in the list
+  if (!pastSearches.includes(searchDate)) {
+    pastSearches.push(searchDate);
+    localStorage.setItem("pastSearches", JSON.stringify(pastSearches));
+    // Update the past searches list
+    // loadPastSearches();
+  }
+}
 
 //start of working javascript
 form.addEventListener('submit', event => {
@@ -86,10 +105,20 @@ form.addEventListener('submit', event => {
 
   } else if (selectionTextElem.textContent.trim() === "Key Word" && searchDate.trim().length > 0 && isNaN(searchDate)) {
     getKeyWordEvent(searchDate)
-    saveSearch(searchDate, selectionTextElem)
-    
+    // saveSearch(searchDate, selectionTextElem)
+    savePastSearch(searchDate)
     // saveSearch()
     
+  } else if (selectionTextElem.textContent.trim() === "Key Word" && searchDate.trim().length === 0 || isNaN(searchDate) === false) {
+    console.log(selectionTextElem.textContent.trim(), searchDate)
+    console.log('somethings wrong')
+    const invalidKeyWord = document.getElementById("invalidKeyWord")
+    invalidKeyWord.style.display = "block"
+    const closeModal = document.getElementById("closemodal")
+    invalidKeyWord.addEventListener("click", event => {
+      invalidKeyWord.style.display = "none"
+    })
+
   } else {
     console.log(selectionTextElem.textContent.trim(), searchDate)
     console.log('somethings wrong')
@@ -98,7 +127,6 @@ form.addEventListener('submit', event => {
     invalidYear.addEventListener("click", event => {
       invalidYear.style.display = "none"
     })
-
   }
 
   });
@@ -106,7 +134,6 @@ form.addEventListener('submit', event => {
 //working code start
 
 function getEvent(searchDate) {
-    
 
   //get 12 random numbers between 1 and 100
 function getRandomInt(min, max) {
@@ -201,6 +228,8 @@ function seeHTML(scriptHTML) {
   scriptHTML.scrollIntoView({ behavior: 'smooth' })
 }
 //end of working javascript
+
+
 
 
 

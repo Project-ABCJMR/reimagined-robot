@@ -19,11 +19,11 @@
 </head>
 <body>
    
-        <div class="tile container"> 
+        <class class="tile container"> 
             <div class="">
                 <!--searchbar-->
                 <div class="  ">
-                    <div class="tile   ">
+                    <div class="tile">
                         <div class=" ">
                             <article class=" card curious ">
                                 <figure class="image">
@@ -32,32 +32,18 @@
                             </article>
                         </div>
                     </div>
-
                         <div class="tile is-ancestor ">   
-
-
-                                
-                                <div class="tile is-parent   ">
-                                    <article class="tile is-child box " >
-                                        
-                                        <div id="dropDown" class=" dropdown is-hoverable ">
-                                            <div class="dropdown-trigger">
-                                                <!-- <button class="button"  id="dropDownButton" aria-haspopup="true" aria-controls="dropdown-menu2">
-                                                    <span id="selectionText">Category</span>
-                                                    <span class="icon is-small">
-                                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                                    </span>
-                                                </button> -->
-                                                <button class="button category is-rounded" id="dropDownButton" aria-haspopup="true" aria-controls="dropdown-menu2">
-                                                    <span id="selectionText">
-                                                        Category
-                                                    </span>
-                                                </button>
-                               
-
-
-                                            </div>
-                                            <div class="dropdown-menu " id="dropdown-menu2" role="menu">
+                            <div class="tile is-parent">
+                                <article class="tile is-child box " >
+                                    <div id="dropDown" class=" dropdown is-hoverable ">
+                                        <div class="dropdown-trigger">
+                                            <button class="button category is-rounded" id="dropDownButton" aria-haspopup="true" aria-controls="dropdown-menu2">
+                                                <span id="selectionText">
+                                                    Category
+                                                </span>
+                                            </button>
+                                        </div>
+                                    <div class="dropdown-menu " id="dropdown-menu2" role="menu">
                                                 <div class="dropdown-content">
                                                     <div class="dropdown-item">
                                                         <button class="button century input is-rounded " id="yearURL" aria-haspopup="true" aria-controls="dropdown-menu3">
@@ -93,23 +79,21 @@
                                                             
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-                                <div class="tile is-parent">
+                                    </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="tile is-parent">
                                     <article class="tile is-child box ">
                                         <form id="search-form  ">
                                             <input type="textarea" id="searchText" class="input
-                                             is-rounded" placeholder="Ask Me Here">
+                                            is-rounded" placeholder="Ask Me Here">
                                             <!-- <input type="textarea" id=" searchText" class=" input is-rounded ds-input control " placeholder= "Ask Me Here"  > -->
                                             <button class=" input is-rounded" type="submit">Search</button>
-                                           
                                         </form>
-                                       
                                     </article>
-                                </div> 
-                                <div class="tile is-parent">
+                            </div> 
+                            <div class="tile is-parent">
                                         <!-- adding drop down selection for keyword or year selection-->
                                     <article class=" container tile is-child box">
                                             <!-- Container holding the previous searches button and a hidden box with past searches content -->
@@ -120,10 +104,8 @@
                                                 </div>
                                             
                                     </article>
-                                </div>
-                        
-                </div> 
-            
+                            </div>
+                        </div> 
                     <div class="tile  container is-parent  is-success " id="himg cardCon">
                             <!--div for content rendering-->  
                         <div class="mainContent tile is-child "> 
@@ -133,7 +115,10 @@
                             <div class=" artcard" id="harvardImgs">
                                 <div class="card-content" id="cardCon">
                                     <h2 id="imgTitle" class="card arttitle"></h2>
-                                    <div id="imgElem" class=" card artpicture"></div>
+                                    <div class="container" id="imgContainer">
+                                        <div id="imgElem" class=" card artpicture"></div>
+                                    <p id="artInfo"></p>
+                                    </div>
                                     <div id="pagination-container " class=" pagination " role="navigation">
                                         <button class="imgBtn pagination is-rounded pagination-next" id="next">Next</button>
                                         <button class="imgBtn pagination is-rounded pagination-previous backbutton" id="previous">Previous</button>
@@ -146,40 +131,36 @@
                     <div class="tile container is-parent coolfacts">
                         <div class="tile is-child factss">
                             <div  id="renderHTML" class="card cardstyle" style="max-width: 80vw; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-evenly">
-                            
                             </div>
                         </div>
                     </div>
-            </div>
-        </div>  
-
-
-
-
-
-
-
-
-
-        
-       
-
+                </div>
+            </div>  
     <!--modal for invalid search input-->
-    <div class="modal" id="invalidYear">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-            <p class="modal-card-title has-text-grey-light">
-                Please enter a valid year, using the numerical keys.
-            </p>
-            <p> </p>
-            <p class="modal-card-title has-text-grey-light">
-                If you would like to search for a century bc then use the "-" key before the year ie -300 for 300bc.
+        <div class="modal" id="invalidYear">
+            <div class="modal-background"></div>
+                <div class="modal-content">
+                    <p class="modal-card-title has-text-grey-light">
+                Please enter a valid year, using the numerical keys;
+                    <br>
+                If you would like to search for a century bc then use the "-" key before the year ie -300 for 300bc. If you would like to do a key word search, please choose "Key Word".
             </p>
         </div>
         <button id="closeModal"class="modal-close is-large" aria-label="close"></button>
-      </div>
+    </div>
+    <div class="modal" id="invalidKeyWord">
+        <div class="modal-background"></div>
+            <div class="modal-content">
+                <p class="modal-card-title has-text-grey-light">
+            For the Key Word search you cannot search using only the numerical keys. 
+                <br>
+            Type in a key word or phrase or combination of letters and numbers if you wish. Example: 17th Century 
+        </p>
+    </div>
+    <button id="close"class="modal-close is-large" aria-label="close"></button>
+    </div>
+</class>
+</body>
 
-      
 
-     
 </html>
