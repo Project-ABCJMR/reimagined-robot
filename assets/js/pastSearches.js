@@ -6,12 +6,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const showPastSearchesBtn = document.getElementById("showPastSearchesBtn");
   const pastSearchesBox = document.getElementById("pastSearchesBox");
   const pastSearchesContent = document.getElementById("pastSearchesContent");
+  const form = document.querySelector('form')
+  const searchText = document.getElementById('searchText');
 
   // Load past searches from local storage and display them as buttons
   function loadPastSearches() {
     // Get past searches or default to an empty array
     const pastSearches = JSON.parse(localStorage.getItem("pastSearches")) || [];
     // Create past search buttons and add them to the past searches content
+    
     pastSearchesContent.innerHTML = pastSearches
       .map((search) => `<button class="button past-search-btn">${search}</button>`)
       .join("");
@@ -21,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function handlePastSearchClick(event) {
     // Check if the clicked element is a past search button
     const target = event.target;
+    console.log(target, "load searchhistory click")
     if (target.classList.contains("past-search-btn")) {
       // Get the search date from the button and perform the search
       const searchDate = target.textContent;
@@ -32,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Save a new search to local storage
-  function saveSearch(searchDate) {
+  function savePastSearch(searchDate) {
     // Get past searches or default to an empty array
     const pastSearches = JSON.parse(localStorage.getItem("pastSearches")) || [];
     // Only save the search if it's not already in the list
@@ -45,23 +49,25 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Listen for the search form submission
-  searchForm.addEventListener("submit", (event) => {
+  form.addEventListener("submit", (event) => {
     event.preventDefault();
+
     // Get the search date and save it to local storage
     const searchDate = event.target.elements.searchText.value;
-    saveSearch(searchDate);
+    savePastSearch(searchDate);
     // Perform the search
     getKeyWordEvent(searchDate);
   });
 
   // Listen for clicks on past search buttons
-  pastSearchesContent.addEventListener("click", handlePastSearchClick);
+  pastSearchesContent.addEventListener("click", handlePastSearchClick); 
   // Load the past searches when the page loads
   loadPastSearches();
 
   // Show the past searches box when the button is clicked
   showPastSearchesBtn.addEventListener("click", () => {
     pastSearchesBox.style.display = "block";
+    console.log( "previous searches btn clicked")
   });
 
   // Hide the past searches box when clicking outside of it

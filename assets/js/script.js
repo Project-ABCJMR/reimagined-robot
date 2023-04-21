@@ -12,9 +12,13 @@ const savedSearches = JSON.parse(localStorage.getItem('savedSearches') || "[]")
 const historicalEventsElem = document.getElementById("historicalEvents")
 const harvardImgs = document.getElementById("harvardimgs")
 const imgElem = document.getElementById("imgElem")
+const artInfo = document.getElementById("artInfo")
 const imgTitleElem = document.getElementById("imgTitle")
 const previousBtn = document.getElementById("previous")
 const nextBtn = document.getElementById("next")
+const backBtn = document.getElementById("back")
+const artContainer = document.getElementById("pagination-container")
+const imgBtns = document.querySelector('imgBtn')
 const cardConElem = document.getElementById("cardCon")
 
 // change selectionTextElem to the choice
@@ -34,13 +38,17 @@ dropDown.addEventListener("click", (event) => {
 yearURLElem.addEventListener("click", event => {
   selectionTextElem.textContent = yearURLElem.textContent
   console.log(event)
-  historicalEventsElem.style.display = "none"
+  historicalEventsElem.style.display = "none";
+  imgElem.style.display = "none";
+  imgTitleElem.style.display = "none";
 })
 
 keyWordURLElem.addEventListener("click", event => {
   selectionTextElem.textContent = keyWordURLElem.textContent
   console.log(selectionTextElem.textContent)
   historicalEventsElem.style.display = "none"
+  imgElem.style.display = "column";
+  imgTitleElem.style.display = "column";
 })
 
 function saveSearch(searchDate, selectionTextElem, eventHTML) {
@@ -70,7 +78,7 @@ form.addEventListener('submit', event => {
   cardConElem.style.display = "inline"
 
   // if, else-if, else
-  if (selectionTextElem.textContent.trim() === "Year" && !isNaN(searchDate)) {
+  if (selectionTextElem.textContent.trim() === "Century" && !isNaN(searchDate)) {
 
     console.log("good search")
     getEvent(searchDate);
