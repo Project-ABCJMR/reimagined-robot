@@ -61,16 +61,7 @@ function saveSearch(searchDate, selectionTextElem, eventHTML) {
   }
   localStorage.setItem('savedSearches', JSON.stringify(savedSearches))
 }
-//past searches save
-// function loadPastSearches() {
-//   // Get past searches or default to an empty array
-//   const pastSearches = JSON.parse(localStorage.getItem("pastSearches")) || [];
-//   // Create past search buttons and add them to the past searches content
-  
-//   pastSearchesContent.innerHTML = pastSearches
-//     .map((search) => `<button class="button past-search-btn">${search}</button>`)
-//     .join("");
-// }
+
 
 function savePastSearch(searchDate) {
   // Get past searches or default to an empty array
@@ -79,9 +70,16 @@ function savePastSearch(searchDate) {
   if (!pastSearches.includes(searchDate)) {
     pastSearches.push(searchDate);
     localStorage.setItem("pastSearches", JSON.stringify(pastSearches));
-    // Update the past searches list
-    // loadPastSearches();
   }
+}
+
+function loadPastSearches() {
+  // Get past searches or default to an empty array
+  const pastSearches = JSON.parse(localStorage.getItem("pastSearches")) || [];
+  // Create past search buttons and add them to the past searches content
+  pastSearchesContent.innerHTML = pastSearches
+    .map((search) => `<button class="button past-search-btn">${search}</button>`)
+    .join("");
 }
 
 //start of working javascript
@@ -95,6 +93,7 @@ form.addEventListener('submit', event => {
   previousBtn.style.display = "inline"
   nextBtn.style.display = "inline"
   cardConElem.style.display = "inline"
+  loadPastSearches()
 
   // if, else-if, else
   if (selectionTextElem.textContent.trim() === "Century" && !isNaN(searchDate)) {
@@ -131,7 +130,7 @@ form.addEventListener('submit', event => {
 
   });
 
-//working code start
+
 
 function getEvent(searchDate) {
 
