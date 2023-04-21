@@ -1,4 +1,4 @@
-![TimeTravelr](assets/images/Screenshot 2023-04-20 at 6.39.03 PM.png)
+![TimeTravelr](./assets/images/Screenshot%202023-04-20%20at%206.39.03%20PM.png)
 
 # ✨ Welcome to TimeTravelr ✨
 
